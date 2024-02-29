@@ -33,3 +33,15 @@
     line-height: 1.4;
     font-size: 12px;
 }
+
+.additions{
+    font-style: italic;
+    font-weight: 600;
+    text-align: left;
+    font-family: 'libre baskerville';
+    margin: 0;
+    color: rgb(95, 90, 68);
+    letter-spacing: 0.6px;
+    line-height: 1.4;
+    font-size: 12px;
+}

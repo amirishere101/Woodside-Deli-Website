@@ -12,13 +12,15 @@ function MenuItem(props) {
         </span>
       </h3>
       <p className={styles.description}>{props.description}</p>
+      <p className={styles.additions}>{props.additions}</p>
     </div>
   );
 }
 
 MenuItem.PropTypes = {
   title: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   description: PropTypes.string,
+  additions: PropTypes.string,
 };
 export default MenuItem;
