@@ -29,8 +29,11 @@ const Home = () => {
               alt="spinning food"
               className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto spin "
             />
+            <div className="absolute p-3 bg-gradient-to-r from-primary to-secondary rounded-xl top-10 left-10 font-din2014">
+              <h1 className="text-white">Takeout</h1>
+            </div>
             <div className="absolute p-3 bg-gradient-to-r from-primary to-secondary rounded-xl bottom-10 right-10 font-din2014">
-              <h1 className="text-white">Hey Coder</h1>
+              <h1 className="text-white">Dine-in</h1>
             </div>
           </div>
         </div>
