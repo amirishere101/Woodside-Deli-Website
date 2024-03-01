@@ -7,7 +7,7 @@ const Menus = [
   {
     id: 1,
     name: "Home",
-    link: "/#",0
+    link: "/#",
   },
   {
     id: 2,
