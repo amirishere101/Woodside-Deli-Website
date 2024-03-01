@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./NavigationBar.css";
 import Logo from "../.././assets/Images/woodside-logo.png";
-import { FaCoffee } from "react-icons/fa";
+import { RiRestaurantFill } from "react-icons/ri";
 
 const Menus = [
   {
@@ -11,13 +10,13 @@ const Menus = [
   },
   {
     id: 2,
-    name: "Services",
-    link: "/#services",
+    name: "About",
+    link: "/#about",
   },
   {
     id: 3,
-    name: "About",
-    link: "/#about",
+    name: "Catering",
+    link: "/#catering",
   },
 ];
 
@@ -27,9 +26,9 @@ const Menus = [
  */
 const NavigationBar = () => {
   return (
-    <div className="text-white bg-gradient-to-r from-secondary to-secondary/90">
+    <div className="text-white bg-gray-900 shadow-md bg-gradient-to-r from-secondary to-secondary/90">
       <div className="container py-2">
-        <div className="flex">
+        <div className="flex items-center justify-between">
           {/* Logo section */}
           <div className="">
             <a
@@ -42,22 +41,23 @@ const NavigationBar = () => {
             </a>
           </div>
           {/* Links section */}
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-4 font-din2014">
             <ul className="items-center hidden gap-4 sm:flex">
               {Menus.map((data, index) => (
                 <li key={index}>
-                  <a href={data.link} className="">
+                  <a
+                    href={data.link}
+                    className="inline-block px-4 py-4 text-xl duration-200 text-white/70 hover:text-white "
+                  >
                     {data.name}
                   </a>
                 </li>
               ))}
-              <ul>
-                <button className="px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105">
-                  Order
-                  <FaCoffee />
-                </button>
-              </ul>
             </ul>
+            <button className="flex items-center gap-3 px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105">
+              Order
+              <RiRestaurantFill className="text-xl cursor-pointer" />
+            </button>
           </div>
         </div>
       </div>

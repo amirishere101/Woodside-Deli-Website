@@ -22,4 +22,16 @@ body {
   background-color: #fffff3;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: spin 40s linear infinite;
+}
+
 
