@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'cubano';
   src: url("./assets/fonts/Cubano.ttf");
@@ -13,6 +17,7 @@
   src: url("./assets/fonts/LibreBaskerville-Regular.ttf");
 }
 
+/* gives the background a softer cream color*/
 body {
   background-color: #fffff3;
 }

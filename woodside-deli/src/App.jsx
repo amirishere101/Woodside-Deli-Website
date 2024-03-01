@@ -1,15 +1,29 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Menu from "./Componenets/Menu/Menu.jsx";
+import NavigationBar from "./Componenets/NavBar/NavigationBar.jsx";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 700,
+      easing: "ease-in",
+      delay: 100,
+    });
+  });
   return (
     <>
-      <Menu />
+      <div className="overflow-x-hidden">
+        <NavigationBar />
+        {/* <Home />
+        <About />
+        <Menu />
+        <Contact /> */}
+      </div>
     </>
   );
-}
+};
 
 export default App;
