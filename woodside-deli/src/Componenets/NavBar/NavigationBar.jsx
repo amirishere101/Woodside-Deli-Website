@@ -10,11 +10,16 @@ const Menus = [
   },
   {
     id: 2,
+    name: "Services",
+    link: "/#services",
+  },
+  {
+    id: 3,
     name: "About",
     link: "/#about",
   },
   {
-    id: 3,
+    id: 4,
     name: "Catering",
     link: "/#catering",
   },
@@ -54,10 +59,12 @@ const NavigationBar = () => {
                 </li>
               ))}
             </ul>
-            <button className="flex items-center gap-3 px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105">
-              Order
-              <RiRestaurantFill className="text-xl cursor-pointer" />
-            </button>
+            <a
+              className="flex items-center gap-3 px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105"
+              href="/#menu"
+            >
+              Menu <RiRestaurantFill className="text-xl cursor-pointer" />
+            </a>
           </div>
         </div>
       </div>

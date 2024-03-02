@@ -7,7 +7,7 @@ const Home = () => {
       <div className="container pb-8 sm:pb-0">
         <div className="grid grid-cols-1 sm:grid-cols-2">
           {/*text content*/}
-          <div className="flex flex-col justify-center order-2 gap-6 pt-12 text-center sm:pt-0 sm:text-left sm:order-1">
+          <div className="flex flex-col justify-center order-2 gap-6 pt-0 text-center sm:text-left sm:order-1">
             <h1 className="text-5xl font-bold sm:text-6xl lg:text-7xl font-din2014">
               <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/90 font-cubano">
                 The Woodside Deli
@@ -17,7 +17,7 @@ const Home = () => {
             </h1>
             <div>
               <button className="px-4 py-2 text-white duration-200 border-2 rounded-full bg-gradient-to-r from-primary to-secondary border-primary hover:scale-105 font-din2014">
-                Sandwich Specialties
+                Check Out Our Famous Sandwich Specialties
               </button>
             </div>
           </div>

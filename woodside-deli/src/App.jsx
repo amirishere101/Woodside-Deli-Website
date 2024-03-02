@@ -4,6 +4,8 @@ import "aos/dist/aos.css";
 import Menu from "./Componenets/Menu/Menu.jsx";
 import NavigationBar from "./Componenets/NavBar/NavigationBar.jsx";
 import Home from "./Componenets/Home/Home.jsx";
+import Carousel from "./Componenets/Carousel/Carousel.jsx";
+import Services from "./Componenets/Services/Services.jsx";
 
 const App = () => {
   useEffect(() => {
@@ -19,11 +21,9 @@ const App = () => {
       <div className="overflow-x-hidden">
         <NavigationBar />
         <Home />
+        <Carousel />
+        <Services />
         <Menu />
-        {/*
-        <About />
-        <Menu />
-        <Contact /> */}
       </div>
     </>
   );
