@@ -7,21 +7,19 @@ const Menus = [
     id: 1,
     name: "Home",
     link: "/#",
-  },
-  {
-    id: 2,
-    name: "Services",
-    link: "/#services",
+    pageName: "home",
   },
   {
     id: 3,
     name: "About",
     link: "/#about",
+    pageName: "about",
   },
   {
     id: 4,
     name: "Catering",
     link: "/#catering",
+    pageName: "catering",
   },
 ];
 
@@ -29,7 +27,7 @@ const Menus = [
  * NavigationBar component.
  * Renders a navigation bar based on the screen size.
  */
-const NavigationBar = () => {
+const NavigationBar = ({ setPage }) => {
   return (
     <div className="text-white bg-gray-900 shadow-md bg-gradient-to-r from-secondary to-secondary/90">
       <div className="container py-2">
@@ -39,6 +37,7 @@ const NavigationBar = () => {
             <a
               href="#"
               className="flex items-center justify-center gap-2 text-2xl font-bold tracking-wider sm:text-3xl font-cubano"
+              onClick={() => setPage("home")}
             >
               {/* can be added back in when I find a better logo image*/}
               {/* <img src={Logo} alt="Woodside Deli Logo" className="w-14" />*/}
@@ -52,6 +51,7 @@ const NavigationBar = () => {
                 <li key={index}>
                   <a
                     href={data.link}
+                    onClick={() => setPage(data.pageName)}
                     className="inline-block px-4 py-4 text-xl duration-200 text-white/70 hover:text-white "
                   >
                     {data.name}
@@ -61,7 +61,8 @@ const NavigationBar = () => {
             </ul>
             <a
               className="flex items-center gap-3 px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105"
-              href="/#menu"
+              href="/#"
+              onClick={() => setPage("menu")}
             >
               Menu <RiRestaurantFill className="text-xl cursor-pointer" />
             </a>

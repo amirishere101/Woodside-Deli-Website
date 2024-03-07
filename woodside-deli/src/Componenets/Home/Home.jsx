@@ -13,7 +13,7 @@ const Home = () => {
                 The Woodside Deli
               </span>{" "}
               <br />
-              The best deli in MD that is guarentted to satisfy.
+              The best deli in MD that is guaranteed to satisfy.
             </h1>
             <div>
               <button className="px-4 py-2 text-white duration-200 border-2 rounded-full bg-gradient-to-r from-primary to-secondary border-primary hover:scale-105 font-din2014">
@@ -27,7 +27,7 @@ const Home = () => {
             <img
               src={HeroImg}
               alt="spinning food"
-              className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto spin "
+              className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto spin"
             />
             <div className="absolute p-3 bg-gradient-to-r from-primary to-secondary rounded-xl top-10 left-10 font-din2014">
               <h1 className="text-white">Takeout</h1>
