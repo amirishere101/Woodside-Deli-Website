@@ -10,6 +10,12 @@ const Menus = [
     pageName: "home",
   },
   {
+    id: 2,
+    name: "Hours & Location",
+    link: "/#hours-location",
+    pageName: "hours-location",
+  },
+  {
     id: 3,
     name: "About",
     link: "/#about",
