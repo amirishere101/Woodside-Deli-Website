@@ -10,7 +10,7 @@ const Home = () => {
           <div className="flex flex-col justify-center order-2 gap-6 pt-0 text-center sm:text-left sm:order-1">
             <h1 className="text-5xl font-bold sm:text-6xl lg:text-7xl font-din2014">
               <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/90 font-cubano">
-                The Woodside Deli
+                The Woodsisdsdsde Deli
               </span>{" "}
               <br />
               The best deli in MD that is guaranteed to satisfy.

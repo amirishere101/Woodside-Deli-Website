@@ -5,6 +5,7 @@ import Menu from "./Componenets/Menu/Menu.jsx";
 import NavigationBar from "./Componenets/NavBar/NavigationBar.jsx";
 import HomePage from "./Componenets/HomePage.jsx";
 import AboutPage from "./Componenets/AboutPage.jsx";
+import Catering from "./Componenets/Catering.jsx";
 
 const App = () => {
   const [page, setPage] = useState("home");
