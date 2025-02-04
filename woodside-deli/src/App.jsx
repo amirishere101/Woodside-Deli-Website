@@ -5,6 +5,8 @@ import Menu from "./Componenets/Menu/Menu.jsx";
 import NavigationBar from "./Componenets/NavBar/NavigationBar.jsx";
 import HomePage from "./Componenets/HomePage.jsx";
 import AboutPage from "./Componenets/AboutPage.jsx";
+import Catering from "./Componenets/Catering.jsx";
+import HoursLocation from "./Componenets/HoursLocation.jsx";
 
 const App = () => {
   const [page, setPage] = useState("home");
@@ -24,6 +26,7 @@ const App = () => {
         <NavigationBar setPage={setPage} />
         {[page === "home" && <HomePage />]}
         {[page === "menu" && <Menu />]}
+        {[page === "hours-location" && <HoursLocation />]}
         {[page === "about" && <AboutPage />]}
         {[page === "catering" && <Catering />]}
       </div>
