@@ -8,13 +8,6 @@ const HoursLocation = () => {
                 <p className="font-extralight">
                     <div>
                         <p className="mb-10">
-                            <ol>
-                                <li>Some orders may need 48 hours notice. </li>
-                                <li>24 hours notice is preferred on all orders, we will do our best to accommodate your "last-minute" orders </li>
-                                <li>The delivery charge is based on location. </li>
-                            </ol>
-                        </p>
-                        <p className="mb-10">
                             Open Hours
 
                             <br />  
