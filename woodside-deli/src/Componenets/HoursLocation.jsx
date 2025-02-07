@@ -24,12 +24,6 @@ const HoursLocation = () => {
                             <br />                
                             Sunday 8 am to 8 pm
                         </p>
-                        <p className="mb-10">
-                            Since our humble beginnings in 1947, we have grown into a local
-                            business that also does catering. Despite the changing times, our
-                            owner Phil Park remains committed to our core values of providing
-                            affordable, quality food to the community.
-                        </p>
                     </div>
                 </p>
             </div>
