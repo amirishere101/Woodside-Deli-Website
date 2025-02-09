@@ -9,15 +9,23 @@ const HoursLocation = () => {
                     <div>
                         <p className="mb-10">
                             Open Hours
-
-                            <br />  
+                            <br />
                             Monday 7 am to 8 pm
-                            <br />  
+                            <br />
                             Tuesday to Saturday 7 am to 9 pm
-                            <br />                
+                            <br />
                             Sunday 8 am to 8 pm
                         </p>
+                        <p>
+                            13048 Middlebrook Rd
+                            <br />
+                            Germantown, MD 20874
+                            <br />
+                            (301) 972-6812
+                        </p>
                     </div>
+
+
                 </p>
             </div>
         </div>
