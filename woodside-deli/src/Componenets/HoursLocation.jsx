@@ -24,8 +24,6 @@ const HoursLocation = () => {
                             (301) 972-6812
                         </p>
                     </div>
-
-
                 </p>
             </div>
         </div>
