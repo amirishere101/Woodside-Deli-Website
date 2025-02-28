@@ -1,6 +1,7 @@
 import React from "react";
 
 const HoursLocation = () => {
+    
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 font-din2014">
             <div className="m-5 sm:ml-80">

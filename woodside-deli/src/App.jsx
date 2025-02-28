@@ -7,6 +7,7 @@ import HomePage from "./Componenets/HomePage.jsx";
 import AboutPage from "./Componenets/AboutPage.jsx";
 import Catering from "./Componenets/Catering.jsx";
 import HoursLocation from "./Componenets/HoursLocation.jsx";
+import {APIProvider} from '@vis.gl/react-google-maps';
 
 const App = () => {
   const [page, setPage] = useState("home");
