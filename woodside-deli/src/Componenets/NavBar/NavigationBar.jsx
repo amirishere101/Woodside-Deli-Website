@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Logo from "../.././assets/Images/woodside-logo.png";
-import { RiRestaurantFill } from "react-icons/ri";
+import { RiRestaurantFill, RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
 const Menus = [
   {
@@ -34,6 +34,12 @@ const Menus = [
  * Renders a navigation bar based on the screen size.
  */
 const NavigationBar = ({ setPage }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="text-white bg-gray-900 shadow-md bg-gradient-to-r from-secondary to-secondary/90">
       <div className="container py-2">
@@ -66,14 +72,55 @@ const NavigationBar = ({ setPage }) => {
               ))}
             </ul>
             <a
-              className="flex items-center gap-3 px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105"
+              className="items-center hidden gap-3 px-4 py-2 duration-200 rounded-full sm:flex bg-primary/70 hover:scale-105"
               href="/#"
               onClick={() => setPage("menu")}
             >
               Menu <RiRestaurantFill className="text-xl cursor-pointer" />
             </a>
+            <div className="sm:hidden">
+              <button onClick={toggleMenu}>
+                {isOpen ? (
+                  <RiCloseLine className="text-3xl" />
+                ) : (
+                  <RiMenu3Line className="text-3xl" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
+        {isOpen && (
+          <div className="sm:hidden">
+            <ul className="flex flex-col items-center gap-4 mt-4">
+              {Menus.map((data, index) => (
+                <li key={index}>
+                  <a
+                    href={data.link}
+                    onClick={() => {
+                      setPage(data.pageName);
+                      toggleMenu();
+                    }}
+                    className="inline-block px-4 py-4 text-xl duration-200 text-white/70 hover:text-white "
+                  >
+                    {data.name}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  className="flex items-center gap-3 px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105"
+                  href="/#"
+                  onClick={() => {
+                    setPage("menu");
+                    toggleMenu();
+                  }}
+                >
+                  Menu <RiRestaurantFill className="text-xl cursor-pointer" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ import HomePage from "./Componenets/HomePage.jsx";
 import AboutPage from "./Componenets/AboutPage.jsx";
 import Catering from "./Componenets/Catering.jsx";
 import HoursLocation from "./Componenets/HoursLocation.jsx";
-import {APIProvider} from '@vis.gl/react-google-maps';
 
 const App = () => {
   const [page, setPage] = useState("home");
@@ -25,11 +24,11 @@ const App = () => {
     <>
       <div className="overflow-x-hidden">
         <NavigationBar setPage={setPage} />
-        {[page === "home" && <HomePage />]}
-        {[page === "menu" && <Menu />]}
-        {[page === "hours-location" && <HoursLocation />]}
-        {[page === "about" && <AboutPage />]}
-        {[page === "catering" && <Catering />]}
+        {page === "home" && <HomePage key="home" />}
+        {page === "menu" && <Menu key="menu" />}
+        {page === "hours-location" && <HoursLocation key="hours-location" />}
+        {page === "about" && <AboutPage key="about" />}
+        {page === "catering" && <Catering key="catering" />}
       </div>
     </>
   );

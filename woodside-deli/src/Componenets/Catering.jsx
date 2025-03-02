@@ -1,34 +1,75 @@
 import React from "react";
+import { RiPhoneFill } from "react-icons/ri";
+import CateringImage from "../assets/Images/Catering-Header-Image.jpg"; // Add your catering image here
+import CateringMenu from "./CateringMenu";
 
 const Catering = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 font-din2014">
-      <div className="m-5 sm:ml-80">
-        <h2 className="mb-5 text-4xl font-bold">Our Catering</h2>
-        <p className="font-extralight">
-          <div>
-            <p className="mb-10">
-              <ol>
-                <li>Some orders may need 48 hours notice. </li>
-                <li>24 hours notice is preferred on all orders, we will do our best to accommodate your "last-minute" orders </li>
-                <li>The delivery charge is based on location. </li>
-              </ol>
+    <div className="py-10">
+      <div className="container mx-auto max-w-7xl">
+        <div className="relative mb-20">
+          <img
+            src={CateringImage}
+            alt="Catering"
+            className="object-cover w-full h-64 rounded-lg shadow-lg"
+          />
+          <div className="absolute bottom-0 p-4 text-center transform -translate-x-1/2 translate-y-1/2 rounded-lg shadow-lg left-1/2 bg-white/90">
+            <div className="relative inline-block px-8 py-2 rounded-full bg-primary">
+              <a
+                href="tel:+13019726812"
+                className="flex items-center text-white"
+              >
+                <h3 className="text-2xl font-semibold font-din2014">
+                  Contact Us
+                </h3>
+                <RiPhoneFill className="ml-2 text-xl" />
+              </a>
+            </div>
+            <p className="mt-4 text-lg font-din2014">
+              To place an order or ask a question, contact us at:
             </p>
-            <p className="mb-10">
-              At Woodside Deli, we offer a diverse menu that caters to all
-              tastes. From traditional deli sandwiches to Italian specialties
-              and hearty soul food, we have something for everyone. Our catering
-              services are flexible and can accommodate any budget and culinary
-              imagination.
-            </p>
-            <p className="mb-10">
-              Since our humble beginnings in 1947, we have grown into a local
-              business that also does catering. Despite the changing times, our
-              owner Phil Park remains committed to our core values of providing
-              affordable, quality food to the community.
+            <p className="text-lg font-din2014">
+              Phone: (301) 972-6812
+              <br />
+              Email: info@woodsidedeli.com
             </p>
           </div>
-        </p>
+        </div>
+        <div className="grid grid-cols-1 gap-10 pt-10 md:grid-cols-2">
+          <div className="p-6 bg-white rounded-lg shadow-lg">
+            <div className="p-4 text-center rounded-full bg-gradient-to-r from-primary to-secondary">
+              <h3 className="text-2xl font-semibold text-white font-din2014">
+                Catering Services
+              </h3>
+            </div>
+            <p className="px-4 mt-4 text-lg text-center font-din2014">
+              At Woodside Deli, we pride ourselves on offering a diverse menu
+              that caters to all tastes. From our traditional deli sandwiches to
+              Italian specialties and hearty soul food, we have something for
+              everyone. Our catering services are flexible and can accommodate
+              any budget and culinary imagination. Let us make your next event
+              unforgettable with our delicious offerings.
+            </p>
+          </div>
+          <div className="p-6 bg-white rounded-lg shadow-lg">
+            <div className="p-4 text-center rounded-full bg-gradient-to-r from-primary to-secondary">
+              <h3 className="text-2xl font-semibold text-white font-din2014">
+                Order Requirements
+              </h3>
+            </div>
+            <ul className="px-4 mt-4 text-lg text-center list-disc list-inside font-din2014">
+              <li>Some orders may need 48 hours notice.</li>
+              <li>
+                24 hours notice is preferred on all orders, and we will do our
+                best to accommodate your "last-minute" orders.
+              </li>
+              <li>The delivery charge is based on location.</li>
+            </ul>
+          </div>
+        </div>
+        <div className="py-10 mt-10 text-white bg-brandDark">
+          <CateringMenu />
+        </div>
       </div>
     </div>
   );
