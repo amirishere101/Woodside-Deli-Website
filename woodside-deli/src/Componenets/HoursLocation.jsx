@@ -42,7 +42,7 @@ const HoursLocation = () => {
               </a>
             </div>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 mt-10 lg:mt-0">
             <h3 className="mb-4 text-2xl font-semibold text-center font-din2014">
               Our Location
             </h3>

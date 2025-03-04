@@ -2,6 +2,24 @@ import React, { useEffect } from "react";
 
 const Map = () => {
   useEffect(() => {
+    const initMap = () => {
+      if (window.google && window.google.maps) {
+        const map = new window.google.maps.Map(document.getElementById("map"), {
+          center: { lat: 39.18145, lng: -77.2717 }, // Coordinates for 13048 Middlebrook Rd, Germantown, MD 20874
+          zoom: 15,
+        });
+
+        new window.google.maps.Marker({
+          position: { lat: 39.18145, lng: -77.2717 },
+          map,
+          title: "Woodside Deli",
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+          },
+        });
+      }
+    };
+
     const loadScript = () => {
       const script = document.createElement("script");
       script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCQ5iR8e22NZmgC5TSz3fdJsqZo2-Vhdf4&callback=initMap`;
@@ -10,24 +28,10 @@ const Map = () => {
       document.head.appendChild(script);
 
       script.onload = () => {
-        window.initMap = function () {
-          const map = new window.google.maps.Map(
-            document.getElementById("map"),
-            {
-              center: { lat: 39.18145, lng: -77.2717 }, // Coordinates for 13048 Middlebrook Rd, Germantown, MD 20874
-              zoom: 15,
-            }
-          );
-
-          new window.google.maps.Marker({
-            position: { lat: 39.18145, lng: -77.2717 },
-            map,
-            title: "Woodside Deli",
-            icon: {
-              url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-            },
-          });
-        };
+        if (window.google && window.google.maps) {
+          window.initMap = initMap;
+          window.initMap();
+        }
       };
 
       script.onerror = () => {
@@ -35,14 +39,14 @@ const Map = () => {
       };
     };
 
-    if (!window.google) {
+    if (!window.google || !window.google.maps) {
       loadScript();
     } else {
-      window.initMap();
+      initMap();
     }
 
     return () => {
-      if (window.google) {
+      if (window.google && window.google.maps) {
         delete window.initMap;
       }
     };

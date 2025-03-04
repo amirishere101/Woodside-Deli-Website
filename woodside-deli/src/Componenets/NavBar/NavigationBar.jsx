@@ -41,7 +41,7 @@ const NavigationBar = ({ setPage }) => {
   };
 
   return (
-    <div className="text-white bg-gray-900 shadow-md bg-gradient-to-r from-secondary to-secondary/90">
+    <div className="sticky top-0 z-50 text-white bg-gray-900 shadow-md bg-gradient-to-r from-secondary to-secondary/90">
       <div className="container py-2">
         <div className="flex items-center justify-between">
           {/* Logo section */}
