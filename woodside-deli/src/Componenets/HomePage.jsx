@@ -11,7 +11,6 @@ const HomePage = () => {
       <Home />
       <Carousel />
       <Services />
-      <Banner />
       <Testimonials />
       <Footer />
     </div>

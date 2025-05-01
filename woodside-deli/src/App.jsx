@@ -18,7 +18,12 @@ const App = () => {
       easing: "ease-in",
       delay: 100,
     });
-  });
+  }, []);
+
+  useEffect(() => {
+    // Scroll to the top of the page whenever the page changes
+    window.scrollTo(0, 0);
+  }, [page]);
 
   return (
     <>

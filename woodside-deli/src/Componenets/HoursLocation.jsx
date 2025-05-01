@@ -3,26 +3,27 @@ import Map from "./Map";
 
 const HoursLocation = () => {
   return (
-    <div className="py-10">
+    <div className="min-h-screen py-10 bg-gradient-to-b from-gray-100 to-gray-300">
       <div className="container mx-auto max-w-7xl">
-        <h2 className="mb-10 text-4xl font-bold text-center font-cubano">
+        <h2 className="mb-10 text-4xl font-bold text-center text-primary font-cubano">
           Hours and Location
         </h2>
-        <div className="flex flex-col text-center lg:flex-row">
-          <div className="flex-1 space-y-6">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+          {/* Hours Section */}
+          <div className="flex flex-col items-center justify-center p-6 space-y-6 bg-white rounded-lg shadow-lg">
             <div>
-              <h3 className="mb-2 text-2xl font-semibold font-din2014">
+              <h3 className="mb-2 text-2xl font-semibold text-center text-secondary font-din2014">
                 Open Hours
               </h3>
-              <p className="text-lg font-din2014">
+              <p className="text-lg text-center text-gray-700 font-din2014">
                 Monday - Sunday: 8 am to 8 pm
               </p>
             </div>
             <div>
-              <h3 className="mb-2 text-2xl font-semibold font-din2014">
+              <h3 className="mb-2 text-2xl font-semibold text-center text-secondary font-din2014">
                 Location
               </h3>
-              <p className="text-lg font-din2014">
+              <p className="text-lg text-center text-gray-700 font-din2014">
                 13048 Middlebrook Rd
                 <br />
                 Germantown, MD 20874
@@ -36,17 +37,19 @@ const HoursLocation = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="px-6 py-3 text-lg text-white duration-200 border-2 rounded-full bg-gradient-to-r from-primary to-secondary border-primary hover:scale-105 font-din2014">
+                <button className="px-6 py-3 text-lg text-white transition duration-300 rounded-full bg-primary hover:bg-secondary font-din2014">
                   Get Directions
                 </button>
               </a>
             </div>
           </div>
-          <div className="flex-1 mt-10 lg:mt-0">
-            <h3 className="mb-4 text-2xl font-semibold text-center font-din2014">
-              Our Location
-            </h3>
+
+          {/* Map Section */}
+          <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-lg">
             <div className="w-full h-full">
+              <h3 className="mb-4 text-2xl font-semibold text-center text-secondary font-din2014">
+                Our Location
+              </h3>
               <Map />
             </div>
           </div>

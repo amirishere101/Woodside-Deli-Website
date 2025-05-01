@@ -48,7 +48,7 @@ const Services = () => {
               return (
                 <div
                   data-aos="fade-up"
-                  data-aos-delay={data.aosDelay}
+                  data-aos-delay="50"
                   key={index}
                   className="bg-white rounded-2xl hover:bg-primary hover:text-white shadow-xl duration-200 max-w[300px] group relative mb-10 cursor-pointer"
                 >

@@ -1,5 +1,4 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
 import FooterBg from "../assets/Images/coffee-footer.jpg";
 
 const FooterLinks = [
@@ -15,44 +14,35 @@ const FooterLinks = [
     title: "Contact",
     link: "/#contact",
   },
-  {
-    title: "Blog",
-    link: "/#blog",
-  },
 ];
 
 const bgImage = {
   backgroundImage: `url(${FooterBg})`,
-  backgroundPosition: "center",
+  backgroundPosition: "center", // Align the bottom of the image
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
-  minHeight: "400px",
+  minHeight: "200px", // Reduced height
   width: "100%",
 };
 const Footer = () => {
   return (
     <div style={bgImage} className="text-white font-din2014">
-      <div className="bg-black/40 min-h-[400px]">
-        <div className="container grid pt-5 pb-20 md:grid-cols-3">
+      <div className="bg-black/40 min-h-[200px]">
+        {" "}
+        {/* Reduced height */}
+        <div className="container grid pt-5 pb-10 md:grid-cols-3">
           {/* company details */}
           <div className="px-4 py-8">
             <a
               href="#"
               className="text-2xl font-semibold tracking-widest sm:text-3xl font-cubano "
             >
-              Coffee Cafe
+              Woodside Deli
             </a>
             <p className="pt-4 ">
-              Crafted Coffee, Cozy Vibes, Unforgettable Moments – Your Perfect
-              Espresso Escape
+              Serving Fresh Sandwiches, Homemade Soups, and Local Favorites –
+              Your Neighborhood Deli
             </p>
-            <a
-              href="https://www.youtube.com/channel/UC1H-a1MKEFXRiFlGNLcy7gQ"
-              target="_blank"
-              className="inline-block bg-[#3d2517] py-2 px-4 mt-5 text-sm rounded-full"
-            >
-              Visit our YouTube Channel
-            </a>
           </div>
 
           {/* Footer links */}
@@ -99,21 +89,13 @@ const Footer = () => {
                 Address
               </h1>
               <div>
-                <p className="mb-3">Germantown, MD</p>
+                <p className="mb-3">
+                  13048 Middlebrook Road, Germantown, MD 20874
+                </p>
                 <p>(301) 972-6812</p>
 
                 {/* social links */}
-                <div className="flex items-center gap-3 mt-6">
-                  <a href="#">
-                    <FaInstagram className="text-3xl duration-300 hover:text-primary" />
-                  </a>
-                  <a href="#">
-                    <FaFacebook className="text-3xl duration-200 hover:text-primary" />
-                  </a>
-                  <a href="#">
-                    <FaLinkedin className="text-3xl duration-200 hover:text-primary" />
-                  </a>
-                </div>
+                <div className="flex items-center gap-3 mt-6"></div>
               </div>
             </div>
           </div>

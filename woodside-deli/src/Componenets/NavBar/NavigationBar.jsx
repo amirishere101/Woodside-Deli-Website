@@ -41,88 +41,96 @@ const NavigationBar = ({ setPage }) => {
   };
 
   return (
-    <div className="sticky top-0 z-50 text-white bg-gray-900 shadow-md bg-gradient-to-r from-secondary to-secondary/90">
-      <div className="container py-2">
-        <div className="flex items-center justify-between">
-          {/* Logo section */}
-          <div className="">
-            <a
-              href="#"
-              className="flex items-center justify-center gap-2 text-2xl font-bold tracking-wider sm:text-3xl font-cubano"
-              onClick={() => setPage("home")}
-            >
-              {/* can be added back in when I find a better logo image*/}
-              {/* <img src={Logo} alt="Woodside Deli Logo" className="w-14" />*/}
-              Woodside Deli
-            </a>
-          </div>
-          {/* Links section */}
-          <div className="flex items-center justify-between gap-4 font-din2014">
-            <ul className="items-center hidden gap-4 sm:flex">
-              {Menus.map((data, index) => (
-                <li key={index}>
-                  <a
-                    href={data.link}
-                    onClick={() => setPage(data.pageName)}
-                    className="inline-block px-4 py-4 text-xl duration-200 text-white/70 hover:text-white "
-                  >
-                    {data.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <a
-              className="items-center hidden gap-3 px-4 py-2 duration-200 rounded-full sm:flex bg-primary/70 hover:scale-105"
-              href="/#"
-              onClick={() => setPage("menu")}
-            >
-              Menu <RiRestaurantFill className="text-xl cursor-pointer" />
-            </a>
-            <div className="sm:hidden">
-              <button onClick={toggleMenu}>
-                {isOpen ? (
-                  <RiCloseLine className="text-3xl" />
-                ) : (
-                  <RiMenu3Line className="text-3xl" />
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-        {isOpen && (
-          <div className="sm:hidden">
-            <ul className="flex flex-col items-center gap-4 mt-4">
-              {Menus.map((data, index) => (
-                <li key={index}>
-                  <a
-                    href={data.link}
-                    onClick={() => {
-                      setPage(data.pageName);
-                      toggleMenu();
-                    }}
-                    className="inline-block px-4 py-4 text-xl duration-200 text-white/70 hover:text-white "
-                  >
-                    {data.name}
-                  </a>
-                </li>
-              ))}
-              <li>
+    <>
+      {/* Add padding to the top of the page to prevent content overlap */}
+      <div className="h-[50px]"></div>
+      <div className="fixed top-0 z-50 w-full bg-transparent shadow-md backdrop-blur-sm">
+        <div className="text-white bg-gray-900 shadow-md bg-gradient-to-r from-secondary to-secondary/90">
+          <div className="container py-2">
+            <div className="flex items-center justify-between">
+              {/* Logo section */}
+              <div className="">
                 <a
-                  className="flex items-center gap-3 px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105"
+                  href="#"
+                  className="flex items-center justify-center gap-2 text-2xl font-bold tracking-wider sm:text-3xl font-cubano"
+                  onClick={() => setPage("home")}
+                >
+                  {/* can be added back in when I find a better logo image */}
+                  {/* <img src={Logo} alt="Woodside Deli Logo" className="w-14" /> */}
+                  Woodside Deli
+                </a>
+              </div>
+              {/* Links section */}
+              <div className="flex items-center justify-between gap-4 font-din2014">
+                <ul className="items-center hidden gap-4 sm:flex">
+                  {Menus.map((data, index) => (
+                    <li key={index}>
+                      <a
+                        href={data.link}
+                        onClick={() => setPage(data.pageName)}
+                        className="inline-block px-4 py-4 text-xl duration-200 text-white/70 hover:text-white"
+                      >
+                        {data.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  className="items-center hidden gap-3 px-4 py-2 duration-200 rounded-full sm:flex bg-primary/70 hover:scale-105"
                   href="/#"
-                  onClick={() => {
-                    setPage("menu");
-                    toggleMenu();
-                  }}
+                  onClick={() => setPage("menu")}
                 >
                   Menu <RiRestaurantFill className="text-xl cursor-pointer" />
                 </a>
-              </li>
-            </ul>
+                <div className="sm:hidden">
+                  <button onClick={toggleMenu}>
+                    {isOpen ? (
+                      <RiCloseLine className="text-3xl" />
+                    ) : (
+                      <RiMenu3Line className="text-3xl" />
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              className={`sm:hidden overflow-hidden transition-all duration-300 ${
+                isOpen ? "max-h-screen" : "max-h-0"
+              }`}
+            >
+              <ul className="flex flex-col items-center gap-4 mt-4">
+                {Menus.map((data, index) => (
+                  <li key={index}>
+                    <a
+                      href={data.link}
+                      onClick={() => {
+                        setPage(data.pageName);
+                        toggleMenu();
+                      }}
+                      className="inline-block px-4 py-4 text-xl duration-200 text-white/70 hover:text-white"
+                    >
+                      {data.name}
+                    </a>
+                  </li>
+                ))}
+                <li>
+                  <a
+                    className="flex items-center gap-3 px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105"
+                    href="/#"
+                    onClick={() => {
+                      setPage("menu");
+                      toggleMenu();
+                    }}
+                  >
+                    Menu <RiRestaurantFill className="text-xl cursor-pointer" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
