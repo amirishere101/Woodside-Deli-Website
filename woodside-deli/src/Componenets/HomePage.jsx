@@ -5,12 +5,12 @@ import Banner from "./Banner.jsx";
 import Footer from "./Footer.jsx";
 import Testimonials from "./Testimonials.jsx";
 
-const HomePage = () => {
+const HomePage = ({ setPage }) => {
   return (
     <div>
       <Home />
       <Carousel />
-      <Services />
+      <Services setPage={setPage} />
       <Testimonials />
       <Footer />
     </div>

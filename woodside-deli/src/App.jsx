@@ -29,7 +29,7 @@ const App = () => {
     <>
       <div className="overflow-x-hidden">
         <NavigationBar setPage={setPage} />
-        {page === "home" && <HomePage key="home" />}
+        {page === "home" && <HomePage setPage={setPage} key="home" />}
         {page === "menu" && <Menu key="menu" />}
         {page === "hours-location" && <HoursLocation key="hours-location" />}
         {page === "about" && <AboutPage key="about" />}

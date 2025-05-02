@@ -30,13 +30,31 @@ const ServicesData = [
   },
 ];
 
-const Services = () => {
+const Services = ({ setPage }) => {
   return (
     <>
       <span id="services"></span>
       <div className="py-10">
         <div className="container">
-          {/* header title}*/}
+          {/* Catering Advertisement Section */}
+          <div className="p-6 mb-20 text-center rounded-lg shadow-lg bg-primary/10">
+            <h1 className="text-4xl font-bold text-primary font-cubano">
+              Catering Services Available!
+            </h1>
+            <p className="mt-4 text-lg text-gray-700 font-din2014">
+              Let us cater your next event with our delicious platters, wraps,
+              and more. Perfect for parties, corporate events, and family
+              gatherings.
+            </p>
+            <a
+              href="/#catering"
+              className="inline-block px-6 py-3 mt-6 text-white rounded-full bg-primary hover:bg-secondary font-din2014"
+              onClick={() => setPage("catering")}
+            >
+              Learn More About Catering
+            </a>
+          </div>
+          {/* header title */}
           <div className="mb-20 text-center">
             <h1 className="text-4xl font-bold text-gray-800 font-cubano">
               Our Most Popular Choices

@@ -1,11 +1,14 @@
 import React from "react";
 import { RiPhoneFill } from "react-icons/ri";
-import CateringImage from "../assets/Images/Catering-Header-Image.jpg"; // Add your catering image here
+import CateringImage from "../assets/Images/catering/fish-platter.jpg";
 import CateringMenu from "./CateringMenu";
 
 const Catering = () => {
   return (
-    <div className="py-10 bg-gradient-to-b from-gray-100 to-gray-300">
+    <div
+      id="catering"
+      className="py-10 bg-gradient-to-b from-gray-100 to-gray-300"
+    >
       <div className="container mx-auto max-w-7xl">
         {/* Header Image Section */}
         <div className="relative mb-20">
@@ -75,7 +78,7 @@ const Catering = () => {
         </div>
 
         {/* Catering Menu Section */}
-        <div className="py-10 mt-10 text-white bg-gradient-to-r from-secondary to-secondary/90">
+        <div className="py-10 mt-10 text-white rounded-3xl bg-gradient-to-r from-secondary to-secondary/90">
           <CateringMenu />
         </div>
       </div>
