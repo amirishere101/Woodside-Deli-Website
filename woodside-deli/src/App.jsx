@@ -7,9 +7,11 @@ import HomePage from "./Componenets/HomePage.jsx";
 import AboutPage from "./Componenets/AboutPage.jsx";
 import Catering from "./Componenets/Catering.jsx";
 import HoursLocation from "./Componenets/HoursLocation.jsx";
+import { use } from "react";
 
 const App = () => {
   const [page, setPage] = useState("home");
+  const [scrollToLunch, setScrollToLunch] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -25,12 +27,28 @@ const App = () => {
     window.scrollTo(0, 0);
   }, [page]);
 
+  useEffect(() => {
+    if (page === "menu" && scrollToLunch) {
+      const lunchSection = document.getElementById("lunch");
+      if (lunchSection) {
+        lunchSection.scrollIntoView({ behavior: "smooth" });
+      }
+      setScrollToLunch(false); // Reset the flag
+    }
+  }, [scrollToLunch]);
+
   return (
     <>
       <div className="overflow-x-hidden">
         <NavigationBar setPage={setPage} />
-        {page === "home" && <HomePage setPage={setPage} key="home" />}
-        {page === "menu" && <Menu key="menu" />}
+        {page === "home" && (
+          <HomePage
+            setPage={setPage}
+            setScrollToLunch={setScrollToLunch}
+            key="home"
+          />
+        )}
+        {page === "menu" && <Menu key="menu" setPage={setPage} />}
         {page === "hours-location" && <HoursLocation key="hours-location" />}
         {page === "about" && <AboutPage key="about" />}
         {page === "catering" && <Catering key="catering" />}

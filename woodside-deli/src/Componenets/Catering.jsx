@@ -1,14 +1,49 @@
-import React from "react";
-import { RiPhoneFill } from "react-icons/ri";
+import React, { useState, useEffect } from "react";
+import { RiPhoneFill, RiArrowDownSLine } from "react-icons/ri";
 import CateringImage from "../assets/Images/catering/fish-platter.jpg";
 import CateringMenu from "./CateringMenu";
 
 const Catering = () => {
+  const [hideBubble, setHideBubble] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const cateringMenu = document.querySelector("#catering-menu");
+      if (cateringMenu) {
+        const menuTop =
+          cateringMenu.getBoundingClientRect().top + window.scrollY;
+        const isAboveMenu = window.scrollY + 100 < menuTop; // Adjust offset as needed
+        setHideBubble(!isAboveMenu);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToCateringMenu = () => {
+    const cateringMenu = document.querySelector("#catering-menu");
+    if (cateringMenu) {
+      cateringMenu.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       id="catering"
       className="py-10 bg-gradient-to-b from-gray-100 to-gray-300"
     >
+      {!hideBubble && (
+        <div
+          onClick={scrollToCateringMenu}
+          className="fixed z-50 flex items-center gap-2 px-4 py-2 text-white rounded-full shadow-lg cursor-pointer top-[70px] left-1/2 transform -translate-x-1/2 bg-primary hover:bg-secondary"
+        >
+          <span className="text-sm font-din2014">
+            Check Out Our Catering Menu
+          </span>
+          <RiArrowDownSLine className="text-lg" />
+        </div>
+      )}
       <div className="container mx-auto max-w-7xl">
         {/* Header Image Section */}
         <div className="relative mb-20">
@@ -78,7 +113,10 @@ const Catering = () => {
         </div>
 
         {/* Catering Menu Section */}
-        <div className="py-10 mt-10 text-white rounded-3xl bg-gradient-to-r from-secondary to-secondary/90">
+        <div
+          id="catering-menu"
+          className="py-10 mt-10 text-white rounded-3xl bg-gradient-to-r from-secondary to-secondary/90"
+        >
           <CateringMenu />
         </div>
       </div>

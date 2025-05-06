@@ -5,10 +5,10 @@ import Banner from "./Banner.jsx";
 import Footer from "./Footer.jsx";
 import Testimonials from "./Testimonials.jsx";
 
-const HomePage = ({ setPage }) => {
+const HomePage = ({ setPage, setScrollToLunch }) => {
   return (
     <div>
-      <Home />
+      <Home setPage={setPage} setScrollToLunch={setScrollToLunch} />
       <Carousel />
       <Services setPage={setPage} />
       <Testimonials />
