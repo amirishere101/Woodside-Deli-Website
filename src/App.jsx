@@ -30,7 +30,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <Router basename="/Woodside-Deli-Website">
       <div className="overflow-x-hidden">
         <NavigationBar />
         <Routes>
