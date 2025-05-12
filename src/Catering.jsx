@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RiPhoneFill, RiArrowDownSLine } from "react-icons/ri";
 import CateringImage from "../assets/Images/catering/fish-platter.jpg";
-import CateringMenu from "./CateringMenu";
+import CateringMenu from "./CateringMenu"; // Corrected path
 
 const Catering = () => {
   const [hideBubble, setHideBubble] = useState(false);

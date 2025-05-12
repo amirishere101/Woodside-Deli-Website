@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaArrowUp } from "react-icons/fa";
 import meatCheesePlatter from "../assets/Images/catering/meat-cheese.jpg";
 import supremeCombo from "../assets/Images/catering/supreme-combo.jpg";
 import cookiePlatter from "../assets/Images/catering/cookie-platter.jpg";
@@ -384,6 +385,7 @@ const sections = {
 
 const CateringMenu = () => {
   const [focusedPlatter, setFocusedPlatter] = useState(null);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -404,6 +406,15 @@ const CateringMenu = () => {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleFocus = (platter) => {
     setFocusedPlatter(platter);
   };
@@ -412,8 +423,18 @@ const CateringMenu = () => {
     setFocusedPlatter(null);
   };
 
+  const scrollToTop = () => {
+    const cateringMenu = document.querySelector("#catering-menu");
+    if (cateringMenu) {
+      cateringMenu.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="px-4 py-10 pt-20 bg-transparent md:px-10">
+    <div
+      className="px-4 py-10 pt-20 bg-transparent md:px-10"
+      id="catering-menu"
+    >
       {" "}
       {/* Removed id="catering" */}
       <div className="flex justify-center mb-10">
@@ -506,6 +527,14 @@ const CateringMenu = () => {
             </button>
           </div>
         </div>
+      )}
+      {showScrollToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed p-3 text-white rounded-full shadow-lg bottom-5 right-5 bg-primary hover:bg-secondary"
+        >
+          <FaArrowUp />
+        </button>
       )}
     </div>
   );

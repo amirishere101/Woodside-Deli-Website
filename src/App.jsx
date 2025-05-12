@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Menu from "./Componenets/Menu/Menu.jsx";
-import NavigationBar from "./Componenets/NavBar/NavigationBar.jsx";
-import HomePage from "./Componenets/HomePage.jsx";
-import AboutPage from "./Componenets/AboutPage.jsx";
-import Catering from "./Componenets/Catering.jsx";
-import HoursLocation from "./Componenets/HoursLocation.jsx";
+import Menu from "./Menu/Menu.jsx";
+import NavigationBar from "./NavBar/NavigationBar.jsx";
+import HomePage from "./HomePage.jsx";
+import AboutPage from "./AboutPage.jsx";
+import Catering from "./Catering.jsx";
+import HoursLocation from "./HoursLocation.jsx";
 import { use } from "react";
 
 const App = () => {
