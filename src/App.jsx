@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Menu from "./Menu/Menu.jsx";
@@ -8,10 +13,19 @@ import HomePage from "./HomePage.jsx";
 import AboutPage from "./AboutPage.jsx";
 import Catering from "./Catering.jsx";
 import HoursLocation from "./HoursLocation.jsx";
+import Footer from "./Footer.jsx";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 const App = () => {
-  const [scrollToLunch, setScrollToLunch] = useState(false);
-
   useEffect(() => {
     AOS.init({
       offset: 100,
@@ -21,29 +35,19 @@ const App = () => {
     });
   }, []);
 
-  const ScrollToLunchHandler = () => {
-    const lunchSection = document.getElementById("lunch");
-    if (lunchSection) {
-      lunchSection.scrollIntoView({ behavior: "smooth" });
-    }
-    setScrollToLunch(false);
-  };
-
   return (
     <Router basename="/Woodside-Deli-Website">
+      <ScrollToTop />
       <div className="overflow-x-hidden">
         <NavigationBar />
         <Routes>
-          <Route
-            path="/"
-            element={<HomePage setScrollToLunch={setScrollToLunch} />}
-          />
+          <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/hours-location" element={<HoursLocation />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/catering" element={<Catering />} />
         </Routes>
-        {scrollToLunch && ScrollToLunchHandler()}
+        <Footer />
       </div>
     </Router>
   );

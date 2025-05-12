@@ -2,6 +2,7 @@ import React from "react";
 import Img1 from "../../assets/Images/reuben-card.jpg";
 import Img2 from "../../assets/Images/no1-card.jpg";
 import Img3 from "../../assets/Images/club-card.jpg";
+import { Link } from "react-router-dom";
 
 const ServicesData = [
   {
@@ -46,13 +47,12 @@ const Services = ({ setPage }) => {
               and more. Perfect for parties, corporate events, and family
               gatherings.
             </p>
-            <a
-              href="/#catering"
+            <Link
+              to={"/catering"}
               className="inline-block px-6 py-3 mt-6 text-white rounded-full bg-primary hover:bg-secondary font-din2014"
-              onClick={() => setPage("catering")}
             >
               Learn More About Catering
-            </a>
+            </Link>
           </div>
           {/* header title */}
           <div className="mb-20 text-center">

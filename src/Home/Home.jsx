@@ -1,12 +1,9 @@
 import React from "react";
 import HeroImg from "../../assets/Images/spinning-breakfast.png";
+import { Link } from "react-router-dom";
+import { BsLink } from "react-icons/bs";
 
-const Home = ({ setPage, setScrollToLunch }) => {
-  const handleClickSandwichSpecials = () => {
-    setScrollToLunch(true); // Set the flag to true to scroll to lunch section
-    setPage("menu");
-  };
-
+const Home = ({}) => {
   return (
     <div className="min-h-[550px] sm:min-h-[600px] bg-brandDark flex justify-center items-center text-white">
       <div className="container pb-8 sm:pb-0">
@@ -20,14 +17,11 @@ const Home = ({ setPage, setScrollToLunch }) => {
               <br />
               The best deli in MD that is guaranteed to satisfy.
             </h1>
-            <div>
-              <button
-                className="px-4 py-2 text-white duration-200 border-2 rounded-full bg-gradient-to-r from-primary to-secondary border-primary hover:scale-105 font-din2014"
-                onClick={handleClickSandwichSpecials}
-              >
+            <Link to="/menu">
+              <button className="px-4 py-2 text-white duration-200 border-2 rounded-full bg-gradient-to-r from-primary to-secondary border-primary hover:scale-105 font-din2014">
                 Check Out Our Famous Sandwich Specialties
               </button>
-            </div>
+            </Link>
           </div>
 
           {/*image content*/}

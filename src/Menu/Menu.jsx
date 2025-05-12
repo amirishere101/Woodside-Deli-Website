@@ -4,6 +4,7 @@ import MenuTitle from "./MenuTitle";
 import MenuSubTitle from "./MenuSubTitle";
 import MenuItem from "./MenuItem";
 import styles from "./Menu.module.css";
+import { Link } from "react-router-dom";
 
 function Menu({ setPage }) {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
@@ -45,13 +46,12 @@ function Menu({ setPage }) {
           >
             Dinner
           </a>
-          <a
-            href="#"
+          <Link
+            to="/catering"
             className="px-4 py-2 text-white rounded-full bg-primary hover:bg-secondary"
-            onClick={() => setPage("catering")}
           >
             Catering
-          </a>
+          </Link>
         </div>
 
         {/* Breakfast Section */}

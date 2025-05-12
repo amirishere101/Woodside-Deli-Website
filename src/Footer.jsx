@@ -1,18 +1,19 @@
 import React from "react";
 import FooterBg from "../assets/Images/coffee-footer.jpg";
+import { Link } from "react-router-dom";
 
 const FooterLinks = [
   {
     title: "Home",
-    link: "/#",
+    link: "/",
   },
   {
     title: "About",
-    link: "/#about",
+    link: "/about",
   },
   {
     title: "Contact",
-    link: "/#contact",
+    link: "/catering",
   },
 ];
 
@@ -72,12 +73,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {FooterLinks.map((data, index) => (
                   <li key={index}>
-                    <a
-                      href={data.link}
+                    <Link
+                      to={data.link}
                       className="inline-block duration-200 hover:scale-105 "
                     >
                       {data.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -12,7 +12,6 @@ const HomePage = ({ setPage, setScrollToLunch }) => {
       <Carousel />
       <Services setPage={setPage} />
       <Testimonials />
-      <Footer />
     </div>
   );
 };
