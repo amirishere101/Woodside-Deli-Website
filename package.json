@@ -2,12 +2,16 @@
   "name": "woodside-deli",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://amirishere101.github.io/Woodside-Deli-Website/",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+   "deploy": "gh-pages -d build",
+   "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "dependencies": {
     "@vis.gl/react-google-maps": "^1.5.1",
