@@ -1,39 +1,15 @@
 import React, { useState } from "react";
-import Logo from "../.././assets/Images/woodside-logo.png";
+import { Link } from "react-router-dom";
 import { RiRestaurantFill, RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
 const Menus = [
-  {
-    id: 1,
-    name: "Home",
-    link: "/#",
-    pageName: "home",
-  },
-  {
-    id: 2,
-    name: "Hours & Location",
-    link: "/#hours-location",
-    pageName: "hours-location",
-  },
-  {
-    id: 3,
-    name: "About",
-    link: "/#about",
-    pageName: "about",
-  },
-  {
-    id: 4,
-    name: "Catering",
-    link: "/#catering",
-    pageName: "catering",
-  },
+  { id: 1, name: "Home", link: "/" },
+  { id: 2, name: "Hours & Location", link: "/hours-location" },
+  { id: 3, name: "About", link: "/about" },
+  { id: 4, name: "Catering", link: "/catering" },
 ];
 
-/**
- * NavigationBar component.
- * Renders a navigation bar based on the screen size.
- */
-const NavigationBar = ({ setPage }) => {
+const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -42,46 +18,38 @@ const NavigationBar = ({ setPage }) => {
 
   return (
     <>
-      {/* Add padding to the top of the page to prevent content overlap */}
       <div className="h-[50px]"></div>
       <div className="fixed top-0 z-50 w-full bg-transparent shadow-md backdrop-blur-sm">
         <div className="text-white bg-gray-900 shadow-md bg-gradient-to-r from-secondary to-secondary/90">
           <div className="container py-2">
             <div className="flex items-center justify-between">
-              {/* Logo section */}
-              <div className="">
-                <a
-                  href="#"
+              <div>
+                <Link
+                  to="/"
                   className="flex items-center justify-center gap-2 text-2xl font-bold tracking-wider sm:text-3xl font-cubano"
-                  onClick={() => setPage("home")}
                 >
-                  {/* can be added back in when I find a better logo image */}
-                  {/* <img src={Logo} alt="Woodside Deli Logo" className="w-14" /> */}
                   Woodside Deli
-                </a>
+                </Link>
               </div>
-              {/* Links section */}
               <div className="flex items-center justify-between gap-4 font-din2014">
                 <ul className="items-center hidden gap-4 sm:flex">
-                  {Menus.map((data, index) => (
-                    <li key={index}>
-                      <a
-                        href={data.link}
-                        onClick={() => setPage(data.pageName)}
+                  {Menus.map((data) => (
+                    <li key={data.id}>
+                      <Link
+                        to={data.link}
                         className="inline-block px-4 py-4 text-xl duration-200 text-white/70 hover:text-white"
                       >
                         {data.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
-                <a
+                <Link
+                  to="/menu"
                   className="items-center hidden gap-3 px-4 py-2 duration-200 rounded-full sm:flex bg-primary/70 hover:scale-105"
-                  href="/#"
-                  onClick={() => setPage("menu")}
                 >
                   Menu <RiRestaurantFill className="text-xl cursor-pointer" />
-                </a>
+                </Link>
                 <div className="sm:hidden">
                   <button onClick={toggleMenu}>
                     {isOpen ? (
@@ -99,31 +67,25 @@ const NavigationBar = ({ setPage }) => {
               }`}
             >
               <ul className="flex flex-col items-center gap-4 mt-4">
-                {Menus.map((data, index) => (
-                  <li key={index}>
-                    <a
-                      href={data.link}
-                      onClick={() => {
-                        setPage(data.pageName);
-                        toggleMenu();
-                      }}
+                {Menus.map((data) => (
+                  <li key={data.id}>
+                    <Link
+                      to={data.link}
+                      onClick={toggleMenu}
                       className="inline-block px-4 py-4 text-xl duration-200 text-white/70 hover:text-white"
                     >
                       {data.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
                 <li>
-                  <a
+                  <Link
+                    to="/menu"
+                    onClick={toggleMenu}
                     className="flex items-center gap-3 px-4 py-2 duration-200 rounded-full bg-primary/70 hover:scale-105"
-                    href="/#"
-                    onClick={() => {
-                      setPage("menu");
-                      toggleMenu();
-                    }}
                   >
                     Menu <RiRestaurantFill className="text-xl cursor-pointer" />
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
