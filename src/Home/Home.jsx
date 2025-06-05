@@ -15,7 +15,7 @@ const Home = ({}) => {
                 The Woodside Deli
               </span>{" "}
               <br />
-              Serving Legendary Sandwiches Since Day One.
+              Serving Legendary Breakfast & Sandwiches Since 1947.
             </h1>
             <Link to="/menu">
               <button className="px-4 py-2 text-white duration-200 border-2 rounded-full bg-gradient-to-r from-primary to-secondary border-primary hover:scale-105 font-din2014">
@@ -29,12 +29,12 @@ const Home = ({}) => {
             <img
               src={HeroImg}
               alt="spinning food"
-              className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto sm:mx-0"
+              className="w-[300px] sm:w-[450px] sm:scale-125 mx-auto sm:mx-0 spin"
             />
-            <div className="absolute p-3 bg-gradient-to-r from-primary to-secondary rounded-xl top-10 left-10 font-din2014">
+            <div className="absolute hidden p-3 bg-gradient-to-r from-primary to-secondary rounded-xl top-10 left-10 font-din2014 sm:block">
               <h1 className="text-white">Takeout</h1>
             </div>
-            <div className="absolute p-3 bg-gradient-to-r from-primary to-secondary rounded-xl bottom-10 right-10 font-din2014">
+            <div className="absolute hidden p-3 bg-gradient-to-r from-primary to-secondary rounded-xl bottom-10 right-10 font-din2014 sm:block">
               <h1 className="text-white">Dine-in</h1>
             </div>
           </div>

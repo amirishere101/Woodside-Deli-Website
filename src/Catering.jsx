@@ -70,7 +70,7 @@ const Catering = () => {
             <p className="text-lg font-din2014">
               Phone: (301) 972-6812
               <br />
-              Email: info@woodsidedeli.com
+              Email: woodsidedeli@hotmail.com
             </p>
           </div>
         </div>
