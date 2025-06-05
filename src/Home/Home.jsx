@@ -1,5 +1,5 @@
 import React from "react";
-import HeroImg from "../../assets/Images/spinning-breakfast.png";
+import HeroImg from "../../assets/Images/Corned-Beef-Reuben-with-Coleslaw-5-1200x1200-1 (2).png";
 import { Link } from "react-router-dom";
 import { BsLink } from "react-icons/bs";
 
@@ -15,7 +15,7 @@ const Home = ({}) => {
                 The Woodside Deli
               </span>{" "}
               <br />
-              The best deli in MD that is guaranteed to satisfy.
+              Serving Legendary Sandwiches Since Day One.
             </h1>
             <Link to="/menu">
               <button className="px-4 py-2 text-white duration-200 border-2 rounded-full bg-gradient-to-r from-primary to-secondary border-primary hover:scale-105 font-din2014">

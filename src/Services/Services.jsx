@@ -1,7 +1,7 @@
 import React from "react";
-import Img1 from "../../assets/Images/reuben-card.jpg";
-import Img2 from "../../assets/Images/no1-card.jpg";
-import Img3 from "../../assets/Images/club-card.jpg";
+import Img1 from "../../assets/Images/Reuben-Sandwiches-Side.jpg";
+import Img2 from "../../assets/Images/Reuben-card.jpg";
+import Img3 from "../../assets/Images/matzo-ball-soup-meat-2122297-hero-01-e583939fbd55487daa6bf371e5b60942.jpg";
 import { Link } from "react-router-dom";
 
 const ServicesData = [
@@ -24,9 +24,8 @@ const ServicesData = [
   {
     id: 3,
     img: Img3,
-    name: "Club Sandwiches",
-    description:
-      "a choice of turkey and/or ham, bacon, lettuce, tomato, and mayo on three slices of toasted bread.",
+    name: "Matzoh Ball Soup",
+    description: "A comforting bowl of our homemade matzoh ball soup.",
     aosDelay: "100",
   },
 ];
