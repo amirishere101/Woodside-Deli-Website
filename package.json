@@ -2,11 +2,11 @@
   "name": "woodside-deli",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://amirishere101.github.io/Woodside-Deli-Website/",
+  "homepage": "https://woodsidedeligermantown.com/",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build base=/Woodside-Deli-Website",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
