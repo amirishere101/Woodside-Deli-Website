@@ -1,7 +1,6 @@
 import React from "react";
 import HeroImg from "../../assets/Images/unnamed (1) (1).png";
 import { Link } from "react-router-dom";
-import { BsLink } from "react-icons/bs";
 
 const Home = ({}) => {
   return (
