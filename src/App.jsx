@@ -36,7 +36,7 @@ const App = () => {
   }, []);
 
   return (
-    <Router basename="/Woodside-Deli-Website">
+    <Router basename="/">
       <ScrollToTop />
       <div className="overflow-x-hidden">
         <NavigationBar />
