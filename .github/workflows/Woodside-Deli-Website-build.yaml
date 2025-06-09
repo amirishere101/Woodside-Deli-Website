@@ -19,7 +19,7 @@ env:
 jobs:
 # Please do not rename this job
   build-project:
-    name: build Woodside-Deli-Website
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: checkout
