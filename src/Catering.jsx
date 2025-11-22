@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { RiPhoneFill, RiArrowDownSLine } from "react-icons/ri";
+import { RiPhoneFill, RiArrowDownSLine, RiMailFill } from "react-icons/ri";
 import CateringImage from "../assets/Images/catering/fish-platter.jpg";
-import CateringMenu from "./CateringMenu"; // Corrected path
+import CateringMenu from "./CateringMenu";
 
 const Catering = () => {
   const [hideBubble, setHideBubble] = useState(false);
@@ -10,10 +10,12 @@ const Catering = () => {
     const handleScroll = () => {
       const cateringMenu = document.querySelector("#catering-menu");
       if (cateringMenu) {
-        const menuTop =
-          cateringMenu.getBoundingClientRect().top + window.scrollY;
-        const isAboveMenu = window.scrollY + 100 < menuTop; // Adjust offset as needed
-        setHideBubble(!isAboveMenu);
+        const rect = cateringMenu.getBoundingClientRect();
+        // Hide bubble when menu is within view (e.g. top is less than 300px from top of viewport)
+        // Since we have scroll-mt-28 (112px), when scrolled to, rect.top is ~112px.
+        // So we should hide if rect.top < 200.
+        const isMenuInView = rect.top < 200;
+        setHideBubble(isMenuInView);
       }
     };
 
@@ -29,95 +31,149 @@ const Catering = () => {
   };
 
   return (
-    <div
-      id="catering"
-      className="py-10 bg-gradient-to-b from-gray-100 to-gray-300"
-    >
+    <div id="catering" className="pt-20 pb-10 bg-light min-h-screen">
       {!hideBubble && (
         <div
           onClick={scrollToCateringMenu}
-          className="fixed z-50 flex items-center gap-2 px-4 py-2 text-white rounded-full shadow-lg cursor-pointer top-[70px] left-1/2 transform -translate-x-1/2 bg-primary hover:bg-secondary"
+          className="fixed z-50 flex items-center gap-3 px-6 py-3 text-white transition-all transform -translate-x-1/2 rounded-full shadow-2xl cursor-pointer top-[90px] left-1/2 bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:shadow-primary/50 animate-bounce"
         >
-          <span className="text-sm font-din2014">
-            Check Out Our Catering Menu
+          <span className="font-bold font-din2014 tracking-wide">
+            View Catering Menu
           </span>
-          <RiArrowDownSLine className="text-lg" />
+          <RiArrowDownSLine className="text-xl" />
         </div>
       )}
-      <div className="container mx-auto max-w-7xl">
+
+      <div className="container mx-auto max-w-7xl px-4">
         {/* Header Image Section */}
-        <div className="relative mb-20">
+        <div className="relative mb-24 rounded-3xl overflow-hidden shadow-2xl group">
+          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500"></div>
           <img
             src={CateringImage}
             alt="Catering"
-            className="object-cover w-full h-64 rounded-lg shadow-lg"
+            className="object-cover w-full h-[400px] sm:h-[500px] transform group-hover:scale-105 transition-transform duration-700"
           />
-          <div className="absolute bottom-0 w-11/12 p-6 text-center transform -translate-x-1/2 translate-y-1/2 rounded-lg shadow-lg left-1/2 bg-white/90 sm:w-auto">
-            <div className="relative inline-block px-8 py-2 rounded-full bg-primary">
+
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-6">
+            <h1 className="text-5xl sm:text-7xl font-bold font-cubano mb-6 drop-shadow-lg">
+              Catering for Every Occasion
+            </h1>
+            <p className="text-xl sm:text-2xl font-din2014 max-w-2xl mb-8 drop-shadow-md">
+              From corporate lunches to family gatherings, we bring the deli to
+              you.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+13019726812"
-                className="flex items-center text-white"
+                href="tel:3019726812"
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-white hover:text-primary text-white rounded-full font-bold font-din2014 text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <h3 className="text-2xl font-semibold font-din2014">
-                  Contact Us
-                </h3>
-                <RiPhoneFill className="ml-2 text-xl" />
+                <RiPhoneFill className="text-2xl" /> Call (301) 972-6812
+              </a>
+              <a
+                href="mailto:woodsidedeli@hotmail.com"
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/20 backdrop-blur-md hover:bg-white hover:text-primary text-white rounded-full font-bold font-din2014 text-lg transition-all duration-300 border-2 border-white hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <RiMailFill className="text-2xl" /> Email Us
               </a>
             </div>
-            <p className="mt-4 text-lg font-din2014">
-              To place an order or ask a question, contact us at:
-            </p>
-            <p className="text-lg font-din2014">
-              Phone: (301) 972-6812
-              <br />
-              Email: woodsidedeli@hotmail.com
-            </p>
           </div>
         </div>
 
         {/* Services and Requirements Section */}
-        <div className="grid grid-cols-1 gap-10 pt-10 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 lg:gap-12 pt-4 md:grid-cols-2 mb-20">
           {/* Catering Services */}
-          <div className="p-6 bg-white rounded-lg shadow-lg">
-            <div className="p-4 text-center rounded-full bg-gradient-to-r from-primary to-secondary">
-              <h3 className="text-2xl font-semibold text-white font-din2014">
+          <div
+            className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300"
+            data-aos="fade-right"
+          >
+            <div className="p-6 bg-gradient-to-r from-primary to-secondary text-white">
+              <h3 className="text-2xl font-bold font-cubano tracking-wide">
                 Catering Services
               </h3>
             </div>
-            <p className="px-4 mt-4 text-lg text-center text-gray-700 font-din2014">
-              At Woodside Deli, we pride ourselves on offering a diverse menu
-              that caters to all tastes. From our traditional deli sandwiches to
-              Italian specialties and hearty soul food, we have something for
-              everyone. Our catering services are flexible and can accommodate
-              any budget and culinary imagination. Let us make your next event
-              unforgettable with our delicious offerings.
-            </p>
+            <div className="p-8">
+              <p className="text-lg text-gray-600 font-din2014 leading-relaxed">
+                At Woodside Deli, we pride ourselves on offering a diverse menu
+                that caters to all tastes. From our traditional deli sandwiches
+                to Italian specialties and hearty soul food, we have something
+                for everyone. Our catering services are flexible and can
+                accommodate any budget and culinary imagination. Let us make
+                your next event unforgettable with our delicious offerings.
+              </p>
+            </div>
           </div>
 
           {/* Order Requirements */}
-          <div className="p-6 bg-white rounded-lg shadow-lg">
-            <div className="p-4 text-center rounded-full bg-gradient-to-r from-secondary to-primary">
-              <h3 className="text-2xl font-semibold text-white font-din2014">
+          <div
+            className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300"
+            data-aos="fade-left"
+          >
+            <div className="p-6 bg-gradient-to-r from-secondary to-primary text-white">
+              <h3 className="text-2xl font-bold font-cubano tracking-wide">
                 Order Requirements
               </h3>
             </div>
-            <ul className="px-8 mt-4 space-y-4 text-lg text-gray-700 list-disc font-din2014">
-              <li>Some orders may need 48 hours notice.</li>
-              <li>
-                24 hours notice is preferred on all orders, and we will do our
-                best to accommodate your "last-minute" orders.
-              </li>
-              <li>The delivery charge is based on location.</li>
-            </ul>
+            <div className="p-8">
+              <ul className="space-y-4">
+                {[
+                  "Some orders may need 48 hours notice.",
+                  "24 hours notice is preferred on all orders, and we will do our best to accommodate your 'last-minute' orders.",
+                  "The delivery charge is based on location.",
+                ].map((item, index) => (
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-lg text-gray-600 font-din2014"
+                  >
+                    <span className="mt-1.5 w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Catering Menu Section */}
         <div
           id="catering-menu"
-          className="py-10 mt-10 text-white rounded-3xl bg-gradient-to-r from-secondary to-secondary/90"
+          className="py-12 px-4 sm:px-8 rounded-3xl bg-white shadow-2xl border border-gray-100 scroll-mt-28"
         >
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary font-cubano mb-2">
+              Full Catering Menu
+            </h2>
+            <div className="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+          </div>
           <CateringMenu />
+        </div>
+
+        {/* Ready to Order Section */}
+        <div className="mt-20 bg-gradient-to-r from-primary to-secondary rounded-3xl p-12 text-center text-white shadow-2xl relative overflow-hidden group">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/food.png')] opacity-10"></div>
+          <div className="relative z-10">
+            <h2 className="text-4xl sm:text-5xl font-bold font-cubano mb-6">
+              Ready to Place Your Order?
+            </h2>
+            <p className="text-xl font-din2014 mb-10 max-w-2xl mx-auto text-white/90">
+              Give us a call or send us an email to discuss your catering needs.
+              We're here to make your event delicious and stress-free!
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <a
+                href="tel:3019726812"
+                className="flex items-center justify-center gap-3 px-10 py-4 bg-white text-primary rounded-full font-bold font-din2014 text-xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105"
+              >
+                <RiPhoneFill className="text-2xl" /> Call Now
+              </a>
+              <a
+                href="mailto:woodsidedeli@hotmail.com"
+                className="flex items-center justify-center gap-3 px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold font-din2014 text-xl transition-all duration-300 hover:bg-white hover:text-primary hover:shadow-2xl hover:scale-105"
+              >
+                <RiMailFill className="text-2xl" /> Email Us
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

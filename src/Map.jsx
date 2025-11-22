@@ -61,8 +61,8 @@ const Map = () => {
   return (
     <div
       id="map"
-      className="w-full h-full"
-      style={{ height: "400px", width: "100%" }}
+      className="w-full h-full min-h-[400px]"
+      style={{ width: "100%" }}
     ></div>
   );
 };

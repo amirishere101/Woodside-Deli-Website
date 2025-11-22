@@ -431,107 +431,153 @@ const CateringMenu = () => {
   };
 
   return (
-    <div
-      className="px-4 py-10 pt-20 bg-transparent md:px-10"
-      id="catering-menu"
-    >
-      {" "}
-      {/* Removed id="catering" */}
-      <div className="flex justify-center mb-10">
-        <div className="px-6 py-3 text-4xl font-bold text-white rounded-full shadow-lg bg-primary font-cubano">
-          Catering Menu
+    <div className="px-4 py-6 bg-transparent md:px-8" id="catering-menu">
+      {/* Section Navigation */}
+      <div className="sticky top-24 z-30 bg-white/95 backdrop-blur-sm py-4 mb-12 border-b border-gray-100 -mx-4 px-4 sm:-mx-8 sm:px-8">
+        <div className="flex flex-wrap justify-center gap-3">
+          {Object.keys(sections).map((sectionName) => (
+            <a
+              key={sectionName}
+              href={`#${sectionName.replace(/\s+/g, "-").toLowerCase()}`}
+              className="px-5 py-2 text-sm font-bold text-gray-600 transition-all duration-300 border-2 border-gray-200 rounded-full hover:border-primary hover:text-primary hover:bg-primary/5 font-din2014"
+            >
+              {sectionName}
+            </a>
+          ))}
         </div>
       </div>
-      <div className="flex flex-wrap justify-center gap-4 mb-10">
-        {Object.keys(sections).map((sectionName) => (
-          <a
-            key={sectionName}
-            href={`#${sectionName.replace(/\s+/g, "-").toLowerCase()}`}
-            className="px-4 py-2 text-white rounded-full bg-secondary hover:bg-primary font-din2014"
-          >
-            {sectionName}
-          </a>
-        ))}
-      </div>
+
       {Object.entries(sections).map(([sectionName, items]) => (
         <div
           key={sectionName}
           id={sectionName.replace(/\s+/g, "-").toLowerCase()}
-          className="mb-10"
+          className="mb-16 scroll-mt-40"
         >
-          <h3 className="mb-6 text-3xl font-bold text-center text-white font-din2014">
-            {sectionName}
-          </h3>
-          <hr className="w-1/2 mx-auto mb-6 border-t-2 border-primary" />
+          <div className="flex items-center gap-4 mb-8">
+            <h3 className="text-3xl font-bold text-secondary font-cubano">
+              {sectionName}
+            </h3>
+            <div className="flex-grow h-px bg-gray-200"></div>
+          </div>
+
           <div
-            className={`grid gap-10 ${
+            className={`grid gap-8 ${
               items.length === 1
-                ? "grid-cols-1 place-items-center"
-                : "md:grid-cols-2"
+                ? "grid-cols-1 max-w-3xl mx-auto"
+                : "grid-cols-1 md:grid-cols-2 xl:grid-cols-2"
             }`}
           >
             {items.map((platter) => (
               <div
                 key={platter.id}
-                className={`p-6 rounded-lg shadow-lg cursor-pointer bg-white/90 ${
-                  platter.fullRow ? "md:col-span-2 mx-auto" : ""
+                className={`group relative p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden ${
+                  platter.fullRow ? "md:col-span-2" : ""
                 }`}
                 onClick={() => handleFocus(platter)}
-                style={platter.fullRow ? { maxWidth: "600px" } : {}}
               >
-                <h4 className="mt-4 mb-2 text-2xl font-semibold text-black font-din2014">
-                  {platter.name}
-                </h4>
-                <p className="text-lg text-black font-din2014">
-                  {platter.description}
-                </p>
-                {platter.photo && (
-                  <img
-                    src={platter.photo}
-                    alt={platter.name}
-                    className="object-cover w-full mt-4 rounded-lg"
-                  />
-                )}
+                <div className="absolute top-0 left-0 w-1 h-full transition-all duration-300 bg-primary opacity-0 group-hover:opacity-100"></div>
+
+                <div className="flex flex-col h-full gap-4 sm:flex-row">
+                  <div className="flex-1">
+                    <h4 className="mb-3 text-xl font-bold text-gray-800 group-hover:text-primary transition-colors font-din2014">
+                      {platter.name}
+                    </h4>
+                    <p className="text-gray-600 font-din2014 leading-relaxed line-clamp-3">
+                      {platter.description}
+                    </p>
+                    <span className="inline-block mt-4 text-sm font-bold text-primary border-b border-primary/30 group-hover:border-primary">
+                      View Details
+                    </span>
+                  </div>
+                  {platter.photo && (
+                    <div className="w-full sm:w-32 h-32 flex-shrink-0 rounded-xl overflow-hidden">
+                      <img
+                        src={platter.photo}
+                        alt={platter.name}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
         </div>
       ))}
       {focusedPlatter && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="relative w-full max-w-lg p-6 bg-white rounded-lg shadow-2xl">
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          onClick={handleClose}
+        >
+          <div
+            className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
-              className="absolute text-2xl font-bold text-gray-600 top-2 right-2 hover:text-black"
+              className="absolute z-10 p-2 text-white bg-black/20 rounded-full top-4 right-4 hover:bg-black/40 transition-colors"
               onClick={handleClose}
             >
-              &times;
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
             </button>
-            <h3 className="mb-4 text-3xl font-bold text-center text-primary font-din2014">
-              {focusedPlatter.name}
-            </h3>
-            <p className="text-lg text-center text-gray-700 font-din2014">
-              {focusedPlatter.description}
-            </p>
+
             {focusedPlatter.photo && (
-              <img
-                src={focusedPlatter.photo}
-                alt={focusedPlatter.name}
-                className="object-cover w-full mt-6 rounded-lg shadow-lg"
-              />
+              <div className="h-64 w-full relative">
+                <img
+                  src={focusedPlatter.photo}
+                  alt={focusedPlatter.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <h3 className="absolute bottom-6 left-6 text-3xl font-bold text-white font-cubano shadow-black/50 drop-shadow-lg">
+                  {focusedPlatter.name}
+                </h3>
+              </div>
             )}
-            <button
-              className="block px-6 py-2 mx-auto mt-6 text-white rounded-full bg-primary hover:bg-secondary font-din2014"
-              onClick={handleClose}
-            >
-              Close
-            </button>
+
+            <div className="p-8">
+              {!focusedPlatter.photo && (
+                <h3 className="mb-6 text-3xl font-bold text-secondary font-cubano">
+                  {focusedPlatter.name}
+                </h3>
+              )}
+              <p className="text-lg text-gray-600 font-din2014 leading-relaxed mb-8">
+                {focusedPlatter.description}
+              </p>
+
+              <div className="flex gap-4 justify-end">
+                <button
+                  className="px-6 py-2 text-gray-600 font-bold font-din2014 hover:bg-gray-100 rounded-full transition-colors"
+                  onClick={handleClose}
+                >
+                  Close
+                </button>
+                <a
+                  href="tel:3019726812"
+                  className="px-8 py-2 text-white bg-primary rounded-full font-bold font-din2014 hover:bg-secondary transition-colors shadow-lg hover:shadow-primary/30"
+                >
+                  Call to Order
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       )}
       {showScrollToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed p-3 text-white rounded-full shadow-lg bottom-5 right-5 bg-primary hover:bg-secondary"
+          className="fixed z-40 p-4 text-white transition-all transform rounded-full shadow-xl bottom-8 right-8 bg-primary hover:bg-secondary hover:scale-110"
         >
           <FaArrowUp />
         </button>

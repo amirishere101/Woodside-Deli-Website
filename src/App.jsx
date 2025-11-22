@@ -38,7 +38,7 @@ const App = () => {
   return (
     <Router basename="/">
       <ScrollToTop />
-      <div className="overflow-x-hidden">
+      <div>
         <NavigationBar />
         <Routes>
           <Route path="/" element={<HomePage />} />

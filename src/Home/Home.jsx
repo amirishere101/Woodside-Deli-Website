@@ -4,37 +4,56 @@ import { Link } from "react-router-dom";
 
 const Home = ({}) => {
   return (
-    <div className="h-[400px] sm:h-[600px] bg-brandDark flex justify-center items-center text-white">
-      <div className="container flex items-center h-full pt-4 pb-2 sm:pb-0 sm:pt-16">
-        <div className="grid h-full grid-cols-1 sm:grid-cols-2">
+    <div className="min-h-[550px] sm:min-h-[650px] bg-brandDark flex justify-center items-center text-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/food.png')]"></div>
+
+      <div className="container flex items-center h-full pb-10 pt-28 sm:pt-0">
+        <div className="grid h-full grid-cols-1 gap-8 sm:grid-cols-2 place-items-center">
           {/*text content*/}
-          <div className="flex flex-col order-2 gap-1 pt-0 text-center sm:text-left sm:order-1">
-            <h1 className="text-2xl font-bold leading-snug sm:text-6xl lg:text-7xl font-din2014 sm:leading-normal">
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/90 font-cubano">
+          <div className="z-10 flex flex-col order-2 gap-6 text-center sm:text-left sm:order-1">
+            <h1
+              data-aos="fade-up"
+              data-aos-once="true"
+              className="text-4xl font-bold leading-tight sm:text-6xl lg:text-7xl font-din2014"
+            >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400 font-cubano drop-shadow-sm">
                 The Woodside Deli
               </span>{" "}
               <br />
-              Serving Legendary Breakfast & Sandwiches Since 1947.
+              <span className="block mt-2 text-2xl italic text-gray-300 sm:text-4xl font-libre baskerville">
+                Serving Legendary Breakfast & Sandwiches Since 1947.
+              </span>
             </h1>
-            <Link to="/menu">
-              <button className="px-2 py-1 text-xs text-white duration-200 border-2 rounded-full sm:text-base bg-gradient-to-r from-primary to-secondary border-primary hover:scale-105 font-din2014">
-                Check Out Our Famous Sandwich Specialties
-              </button>
-            </Link>
+            <div data-aos="fade-up" data-aos-delay="200">
+              <Link to="/menu">
+                <button className="px-8 py-3 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 border-2 rounded-full sm:text-base bg-gradient-to-r from-primary to-secondary border-primary hover:scale-105 hover:shadow-lg hover:from-secondary hover:to-primary font-din2014">
+                  View Our Menu
+                </button>
+              </Link>
+            </div>
           </div>
 
           {/*image content*/}
-          <div className="relative flex items-center justify-center sm:items-center sm:justify-center sm:order-2">
+          <div className="relative z-10 flex items-center justify-center order-1 sm:order-2">
             <img
               src={HeroImg}
-              alt="spinning food"
-              className="w-[200px] sm:w-[450px] sm:scale-125 mx-auto sm:mx-0"
+              alt="Woodside Deli Sandwich"
+              className="w-[280px] sm:w-[450px] lg:w-[550px] object-contain drop-shadow-2xl"
             />
-            <div className="absolute hidden p-3 bg-gradient-to-r from-primary to-secondary rounded-xl top-10 left-10 font-din2014 sm:block">
-              <h1 className="text-white">Takeout</h1>
+            <div
+              data-aos="fade-left"
+              data-aos-delay="400"
+              className="absolute left-0 hidden px-6 py-3 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-xl top-10 font-din2014 sm:block"
+            >
+              <h1 className="font-bold text-white">Order Takeout</h1>
             </div>
-            <div className="absolute hidden p-3 bg-gradient-to-r from-primary to-secondary rounded-xl bottom-10 right-10 font-din2014 sm:block">
-              <h1 className="text-white">Dine-in</h1>
+            <div
+              data-aos="fade-right"
+              data-aos-delay="600"
+              className="absolute right-0 hidden px-6 py-3 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-xl bottom-10 font-din2014 sm:block"
+            >
+              <h1 className="font-bold text-white">Dine-in Available</h1>
             </div>
           </div>
         </div>

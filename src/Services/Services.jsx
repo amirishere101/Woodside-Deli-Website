@@ -12,6 +12,7 @@ const ServicesData = [
     description:
       "Our Famous Reuben Sandwich with Corned Beef, Swiss Cheese, Sauerkraut, and Russian Dressing on Grilled Rye Bread.",
     aosDelay: "100",
+    link: "/menu#lunch",
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const ServicesData = [
     description:
       "Our famous hot pastrami, corned beef, and russian dressing, topped with creamy slaw and melted swiss cheese on grilled rye bread.",
     aosDelay: "100",
+    link: "/menu#lunch",
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ const ServicesData = [
     name: "Matzoh Ball Soup",
     description: "A comforting bowl of our homemade matzoh ball soup.",
     aosDelay: "100",
+    link: "/menu#lunch",
   },
 ];
 
@@ -34,59 +37,83 @@ const Services = ({ setPage }) => {
   return (
     <>
       <span id="services"></span>
-      <div className="py-10">
+      <div className="py-12 bg-gray-50">
         <div className="container">
           {/* Catering Advertisement Section */}
-          <div className="p-6 mb-20 text-center rounded-lg shadow-lg bg-primary/10">
-            <h1 className="text-4xl font-bold text-primary font-cubano">
-              Catering Services Available!
-            </h1>
-            <p className="mt-4 text-lg text-gray-700 font-din2014">
-              Let us cater your next event with our delicious platters, wraps,
-              and more. Perfect for parties, corporate events, and family
-              gatherings.
-            </p>
-            <Link
-              to={"/catering"}
-              className="inline-block px-6 py-3 mt-6 text-white rounded-full bg-primary hover:bg-secondary font-din2014"
-            >
-              Learn More About Catering
-            </Link>
+          <div
+            data-aos="zoom-in"
+            className="relative p-8 mb-20 overflow-hidden text-center rounded-3xl shadow-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10"
+          >
+            <div className="relative z-10">
+              <h1 className="text-3xl sm:text-5xl font-bold text-primary font-cubano mb-4">
+                Catering Services Available!
+              </h1>
+              <p className="max-w-2xl mx-auto text-lg text-gray-700 font-din2014 mb-8 leading-relaxed">
+                Let us cater your next event with our delicious platters, wraps,
+                and more. Perfect for parties, corporate events, and family
+                gatherings.
+              </p>
+              <Link
+                to={"/catering"}
+                className="inline-block px-8 py-3 text-white transition-all duration-300 rounded-full shadow-lg bg-primary hover:bg-secondary hover:shadow-xl hover:-translate-y-1 font-din2014 font-semibold"
+              >
+                Learn More About Catering
+              </Link>
+            </div>
+            {/* Decorative circle */}
+            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-primary/5 blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-secondary/5 blur-3xl"></div>
           </div>
+
           {/* header title */}
-          <div className="mb-20 text-center">
-            <h1 className="text-4xl font-bold text-gray-800 font-cubano">
+          <div className="mb-24 text-center">
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 font-cubano relative inline-block">
               Our Most Popular Choices
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary rounded-full"></div>
             </h1>
           </div>
+
           {/* services card section */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 md:gap-5 place-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-8 place-items-center">
             {ServicesData.map((data, index) => {
               return (
-                <div
+                <Link
+                  to={data.link}
                   data-aos="fade-up"
-                  data-aos-delay="50"
+                  data-aos-delay={data.aosDelay}
                   key={index}
-                  className="bg-white rounded-2xl hover:bg-primary hover:text-white shadow-xl duration-200 max-w[300px] group relative mb-10 cursor-pointer"
+                  className="bg-white rounded-2xl hover:bg-primary hover:text-white shadow-xl duration-300 max-w-[350px] group relative mt-12 w-full h-full flex flex-col"
                 >
                   {/* image section */}
-                  <div className="h-[122px]">
+                  <div className="h-[140px] relative">
                     <img
                       src={data.img}
-                      alt=""
-                      className="max-w-[200px] block mx-auto transform -translate-y-14 group-hover:scale-100 group-hover:rotate-6 duration-300 rounded-3xl"
+                      alt={data.name}
+                      className="w-[200px] h-[160px] object-cover block mx-auto transform -translate-y-12 group-hover:scale-105 group-hover:rotate-1 duration-300 rounded-2xl shadow-lg border-4 border-white group-hover:border-primary/20"
                     />
                   </div>
                   {/* text content */}
-                  <div className="p-4 text-center font-din2014">
-                    <h1 className="text-xl font-bold">{data.name}</h1>
-                    <p className="text-sm text-gray-500 duration-300 group-hover:text-white line-clamp-2">
-                      {data.description}
-                    </p>
+                  <div className="p-6 text-center font-din2014 flex-grow flex flex-col justify-between">
+                    <div>
+                      <h1 className="text-2xl font-bold mb-3 group-hover:text-white text-gray-800">
+                        {data.name}
+                      </h1>
+                      <p className="text-gray-500 duration-300 group-hover:text-white/90 text-sm leading-relaxed">
+                        {data.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Link to="/menu">
+              <button className="px-8 py-3 text-primary border-2 border-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-bold font-din2014 uppercase tracking-wider">
+                View Full Menu
+              </button>
+            </Link>
           </div>
         </div>
       </div>

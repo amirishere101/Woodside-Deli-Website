@@ -72,41 +72,56 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="py-10 mb-10">
+    <div className="py-20 bg-gray-50">
       <div className="container">
         {/* header section */}
-        <div className="mb-10">
-          <h1
-            data-aos="fade-up"
-            className="text-4xl font-bold text-center font-cubano"
-          >
+        <div className="mb-16 text-center" data-aos="fade-up">
+          <h1 className="mb-4 text-5xl font-bold text-primary font-cubano">
             Hearing From You
           </h1>
+          <div className="w-24 h-1 mx-auto rounded-full bg-secondary"></div>
+          <p className="max-w-2xl mx-auto mt-6 text-xl text-gray-600 font-din2014">
+            We love our customers and they love us! Here's what some of them
+            have to say about their experience at Woodside Deli.
+          </p>
         </div>
 
         {/* Testimonial cards */}
         <div data-aos="zoom-in" data-aos-delay="50">
-          {" "}
-          {/* Reduced delay */}
           <Slider {...settings}>
             {TestimonialData.map((data) => (
-              <div className="my-6" key={data.id}>
-                <div className="relative flex flex-col gap-4 px-6 py-8 mx-4 shadow-lg rounded-xl bg-primary/10">
-                  <div className="mb-4">
-                    <img src={data.img} alt="" />
+              <div className="px-3 py-6" key={data.id}>
+                <div className="relative flex flex-col h-full gap-6 p-8 transition-all duration-300 bg-white border border-gray-100 shadow-xl rounded-3xl hover:shadow-2xl hover:-translate-y-2">
+                  {/* Quote Icon */}
+                  <div className="absolute top-6 right-8 text-6xl text-primary/20 font-serif leading-none">
+                    "
                   </div>
-                  {/* content section */}
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="space-y-3">
-                      <p className="text-xs text-gray-500">{data.text}</p>
-                      <h1 className="text-xl font-bold text-black/80 font-din2014">
+
+                  {/* Header with Image and Name */}
+                  <div className="flex items-center gap-4">
+                    <div className="relative">
+                      <img
+                        src={data.img}
+                        alt={data.name}
+                        className="w-16 h-16 rounded-full object-cover border-2 border-primary shadow-md"
+                      />
+                    </div>
+                    <div>
+                      <h1 className="text-xl font-bold text-secondary font-cubano">
                         {data.name}
                       </h1>
+                      <div className="flex text-yellow-400 text-sm">
+                        {"★".repeat(5)}
+                      </div>
                     </div>
                   </div>
-                  <p className="absolute top-0 right-0 font-serif text-black/20 text-9xl">
-                    ,,
-                  </p>
+
+                  {/* Content */}
+                  <div className="flex-grow">
+                    <p className="text-gray-600 font-din2014 leading-relaxed italic">
+                      "{data.text}"
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
