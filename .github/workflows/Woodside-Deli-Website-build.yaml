@@ -17,7 +17,7 @@ env:
   DEPLOYMENT_FOLDER: dist
 
 jobs:
-# Please do not rename this job
+  # Please do not rename this job
   build-project:
     name: build Woodside-Deli-Website
     runs-on: ubuntu-latest
@@ -25,9 +25,20 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
 
-# Please do not touch the following action
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      # Please do not touch the following action
       - name: Store deployment content
         uses: ionos-deploy-now/artifact-action@v1
         with:
