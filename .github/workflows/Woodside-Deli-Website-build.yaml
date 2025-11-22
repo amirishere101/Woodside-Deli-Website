@@ -48,5 +48,4 @@ jobs:
           branch-id: ${{ inputs.branch-id }}
           version: ${{ github.sha }}
           folder: ${{ env.DEPLOYMENT_FOLDER }}
-          config-file: .deploy-now/Woodside-Deli-Website/config.yaml
           action: upload
