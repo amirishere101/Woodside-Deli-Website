@@ -6,10 +6,5 @@ export default defineConfig({
   plugins: [react()],
   build: {
     assetsInlineLimit: 0, // Ensure fonts are not inlined
-    rollupOptions: {
-      output: {
-        assetFileNames: "assets/[name].[ext]", // Keep fonts in the assets folder
-      },
-    },
   },
 });

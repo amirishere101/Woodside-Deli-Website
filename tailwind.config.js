@@ -19,7 +19,10 @@ export default {
         center: true,
         padding: {
           DEFAULT: "1rem",
-          sm: "828",
+          sm: "2rem",
+          lg: "4rem",
+          xl: "5rem",
+          "2xl": "6rem",
         },
       },
       animation: {
