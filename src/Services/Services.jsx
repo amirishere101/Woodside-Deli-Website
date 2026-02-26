@@ -82,7 +82,7 @@ const Services = ({ setPage }) => {
                   data-aos="fade-up"
                   data-aos-delay={data.aosDelay}
                   key={index}
-                  className="bg-white rounded-2xl hover:bg-primary hover:text-white shadow-xl duration-300 max-w-[350px] group relative mt-12 w-full h-full flex flex-col"
+                  className="bg-white rounded-2xl hover:bg-primary hover:text-white shadow-xl duration-300 max-w-[350px] group relative mt-12 w-full h-full flex flex-col hover:-translate-y-2"
                 >
                   {/* image section */}
                   <div className="h-[140px] relative">

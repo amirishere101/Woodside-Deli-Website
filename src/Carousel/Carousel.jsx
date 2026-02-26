@@ -20,34 +20,50 @@ export default function Carousel() {
   const settings = {
     dots: true,
     infinite: true,
-    centerMode: false, // Disable center mode to align images properly
+    centerMode: false,
     autoplay: true,
     autoplaySpeed: 5000,
     speed: 1000,
-    slidesToShow: 3, // Show 3 images at a time
+    slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+    ],
   };
   return (
-    <>
-      <div className="m-auto">
-        <div className="mb-10">
-          <Slider {...settings}>
-            {slides.map((slide, index) => (
-              <div key={index} className="">
-                <div className="flex items-center justify-center">
-                  <img
-                    src={slide.img}
-                    className="object-cover w-full h-64" // Use object-cover to fill the space and remove gaps
-                    loading="lazy"
-                    alt={`Slide ${index + 1}`}
-                  />
-                </div>
+    <div className="py-4 bg-gray-50">
+      <div className="container mx-auto">
+        <Slider {...settings}>
+          {slides.map((slide, index) => (
+            <div key={index} className="px-1 sm:px-2">
+              <div className="overflow-hidden rounded-lg shadow-md">
+                <img
+                  src={slide.img}
+                  className="object-cover w-full h-48 sm:h-56 md:h-64 transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                  alt={`Woodside Deli photo ${index + 1}`}
+                />
               </div>
-            ))}
-          </Slider>
-        </div>
+            </div>
+          ))}
+        </Slider>
       </div>
-    </>
+    </div>
   );
 }

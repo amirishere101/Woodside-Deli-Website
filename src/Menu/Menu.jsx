@@ -12,22 +12,30 @@ function Menu({ setPage }) {
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollToTop(window.scrollY > 300);
-
-      // Determine active section
-      const sections = ["breakfast", "lunch", "dinner"];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top >= 0 && rect.top <= 300) {
-            setActiveSection(section);
-          }
-        }
-      }
     };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // IntersectionObserver-based scroll spy
+  useEffect(() => {
+    const sections = document.querySelectorAll("#breakfast, #lunch, #dinner");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-150px 0px -60% 0px",
+        threshold: 0,
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
   const scrollToTop = () => {
@@ -796,7 +804,8 @@ function Menu({ setPage }) {
         {showScrollToTop && (
           <button
             onClick={scrollToTop}
-            className="fixed p-3 text-white rounded-full shadow-lg bottom-5 right-5 bg-primary hover:bg-secondary"
+            aria-label="Scroll to top"
+            className="fixed p-4 text-white rounded-full shadow-xl bottom-6 right-6 bg-primary hover:bg-secondary transition-all duration-300 hover:scale-110 hover:shadow-2xl z-40"
           >
             <FaArrowUp />
           </button>

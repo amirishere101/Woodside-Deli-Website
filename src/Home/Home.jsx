@@ -41,20 +41,22 @@ const Home = ({}) => {
               alt="Woodside Deli Sandwich"
               className="w-[280px] sm:w-[450px] lg:w-[550px] object-contain drop-shadow-2xl"
             />
-            <div
+            <Link
+              to="/menu"
               data-aos="fade-left"
               data-aos-delay="400"
-              className="absolute left-0 hidden px-6 py-3 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-xl top-10 font-din2014 sm:block"
+              className="absolute left-0 hidden px-6 py-3 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-xl top-10 font-din2014 sm:block hover:bg-white/20 transition-colors duration-200 cursor-pointer"
             >
-              <h1 className="font-bold text-white">Order Takeout</h1>
-            </div>
-            <div
+              <span className="font-bold text-white">Order Takeout</span>
+            </Link>
+            <Link
+              to="/hours-location"
               data-aos="fade-right"
               data-aos-delay="600"
-              className="absolute right-0 hidden px-6 py-3 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-xl bottom-10 font-din2014 sm:block"
+              className="absolute right-0 hidden px-6 py-3 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-xl bottom-10 font-din2014 sm:block hover:bg-white/20 transition-colors duration-200 cursor-pointer"
             >
-              <h1 className="font-bold text-white">Dine-in Available</h1>
-            </div>
+              <span className="font-bold text-white">Dine-in Available</span>
+            </Link>
           </div>
         </div>
       </div>

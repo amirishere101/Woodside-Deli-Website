@@ -35,12 +35,12 @@ const Catering = () => {
       {!hideBubble && (
         <div
           onClick={scrollToCateringMenu}
-          className="fixed z-50 flex items-center gap-3 px-6 py-3 text-white transition-all transform -translate-x-1/2 rounded-full shadow-2xl cursor-pointer top-[90px] left-1/2 bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:shadow-primary/50 animate-bounce"
+          className="fixed z-50 flex items-center gap-2 px-5 py-2.5 text-white transition-all duration-300 transform -translate-x-1/2 rounded-full shadow-lg cursor-pointer top-[90px] left-1/2 bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:shadow-xl opacity-90 hover:opacity-100"
         >
-          <span className="font-bold font-din2014 tracking-wide">
+          <span className="text-sm font-bold font-din2014 tracking-wide">
             View Catering Menu
           </span>
-          <RiArrowDownSLine className="text-xl" />
+          <RiArrowDownSLine className="text-lg animate-bounce" />
         </div>
       )}
 

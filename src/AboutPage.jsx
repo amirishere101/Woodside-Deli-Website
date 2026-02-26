@@ -52,19 +52,19 @@ const AboutPage = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-4 text-center">
-              <div className="p-4 bg-white rounded-xl shadow-md">
+              <div className="p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-3xl font-bold text-primary font-cubano">
                   1947
                 </h3>
                 <p className="text-sm text-gray-500">Established</p>
               </div>
-              <div className="p-4 bg-white rounded-xl shadow-md">
+              <div className="p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-3xl font-bold text-primary font-cubano">
-                  60+
+                  {new Date().getFullYear() - 1947}+
                 </h3>
                 <p className="text-sm text-gray-500">Years Served</p>
               </div>
-              <div className="p-4 bg-white rounded-xl shadow-md">
+              <div className="p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-3xl font-bold text-primary font-cubano">
                   100%
                 </h3>

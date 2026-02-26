@@ -8,11 +8,19 @@ const FooterLinks = [
     link: "/",
   },
   {
+    title: "Menu",
+    link: "/menu",
+  },
+  {
     title: "About",
     link: "/about",
   },
   {
-    title: "Contact",
+    title: "Hours & Location",
+    link: "/hours-location",
+  },
+  {
+    title: "Catering",
     link: "/catering",
   },
 ];

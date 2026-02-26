@@ -4,11 +4,13 @@ import Services from "./Services/Services.jsx";
 import Banner from "./Banner.jsx";
 import Footer from "./Footer.jsx";
 import Testimonials from "./Testimonials.jsx";
+import PromoBanner from "./PromoBanner.jsx";
 
 const HomePage = ({ setPage, setScrollToLunch }) => {
   return (
     <div>
       <Home setPage={setPage} setScrollToLunch={setScrollToLunch} />
+      <PromoBanner />
       <Carousel />
       <Services setPage={setPage} />
       <Testimonials />

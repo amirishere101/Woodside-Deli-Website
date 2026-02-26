@@ -577,7 +577,8 @@ const CateringMenu = () => {
       {showScrollToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed z-40 p-4 text-white transition-all transform rounded-full shadow-xl bottom-8 right-8 bg-primary hover:bg-secondary hover:scale-110"
+          aria-label="Scroll to top of catering menu"
+          className="fixed z-40 p-4 text-white transition-all rounded-full shadow-xl bottom-8 right-8 bg-primary hover:bg-secondary hover:scale-110 hover:shadow-2xl"
         >
           <FaArrowUp />
         </button>

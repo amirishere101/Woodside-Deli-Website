@@ -118,7 +118,7 @@ const Testimonials = () => {
 
                   {/* Content */}
                   <div className="flex-grow">
-                    <p className="text-gray-600 font-din2014 leading-relaxed italic">
+                    <p className="text-gray-600 font-din2014 leading-relaxed italic line-clamp-6 sm:line-clamp-none">
                       "{data.text}"
                     </p>
                   </div>
