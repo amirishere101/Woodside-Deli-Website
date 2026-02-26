@@ -1,0 +1,40 @@
+# More information under https://docs.ionos.space/docs/github-actions-customization/
+
+name: "Deploy Now: Execute Build"
+
+on:
+  - push
+
+jobs:
+  project:
+    runs-on: ubuntu-latest
+    outputs:
+      site-url: ${{ steps.project.outputs.site-url }}
+      branch-id: ${{ steps.project.outputs.branch-id }}
+      deployment-ids: ${{ steps.project.outputs.deployment-ids }}
+    steps:
+      - name: Fetch project data
+        uses: ionos-deploy-now/retrieve-project-info-action@v2
+        id: project
+        with:
+          api-key: ${{ secrets.IONOS_API_KEY }}
+          service-host: api-us.ionos.space
+          project: cb6d8518-0c75-494c-ae6d-c6e1a494f7dc
+
+  build:
+    needs: project
+    uses: ./.github/workflows/Woodside-Deli-Website-build.yaml
+    with:
+      site-url: ${{ needs.project.outputs.site-url }}
+      branch-id: ${{ needs.project.outputs.branch-id }}
+    secrets: inherit
+
+  deploy:
+    needs: [project, build]
+    uses: ./.github/workflows/deploy-to-ionos.yaml
+    with:
+      version: ${{ github.sha }}
+      project-id: cb6d8518-0c75-494c-ae6d-c6e1a494f7dc
+      branch-id: ${{ needs.project.outputs.branch-id }}
+      deployment-ids: ${{ needs.project.outputs.deployment-ids }}
+    secrets: inherit
