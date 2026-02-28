@@ -5,6 +5,20 @@
 name: "Deploy Now: Deploy to IONOS"
 
 on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+      project-id:
+        required: true
+        type: string
+      branch-id:
+        required: true
+        type: string
+      deployment-ids:
+        required: true
+        type: string
   workflow_dispatch:
     inputs:
       version:
@@ -27,7 +41,7 @@ concurrency: ${{ github.ref }}
 
 jobs:
   deploy-to-ionos:
-    if: ${{ github.event_name == 'workflow_dispatch' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' }}
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -112,7 +126,7 @@ jobs:
 
   notify-deployment-finished:
     needs: deploy-to-ionos
-    if: ${{ github.event_name == 'workflow_dispatch' && always() }}
+    if: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call') && always() }}
     runs-on: ubuntu-latest
     steps:
       - name: Notify all deployments finished

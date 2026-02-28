@@ -14,7 +14,7 @@ jobs:
       deployment-ids: ${{ steps.project.outputs.deployment-ids }}
     steps:
       - name: Fetch project data
-        uses: ionos-deploy-now/retrieve-project-info-action@v2
+        uses: ionos-deploy-now/retrieve-project-info-action@v1
         id: project
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
