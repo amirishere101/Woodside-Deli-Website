@@ -30,27 +30,8 @@ jobs:
       branch-id: ${{ needs.project.outputs.branch-id }}
     secrets: inherit
 
-  validate-deploy-config:
-    needs: project
-    runs-on: ubuntu-latest
-    steps:
-      - name: Validate IONOS deployment targets
-        run: |
-          echo "branch-id: '${{ needs.project.outputs.branch-id }}'"
-          echo "deployment-ids: '${{ needs.project.outputs.deployment-ids }}'"
-          if [ -z "${{ needs.project.outputs.branch-id }}" ]; then
-            echo "ERROR: IONOS did not return a branch-id for this GitHub branch."
-            echo "Fix: In IONOS Deploy Now, connect this repository branch as a deployment branch (or reconnect GitHub integration)."
-            exit 1
-          fi
-          if [ -z "${{ needs.project.outputs.deployment-ids }}" ] || [ "${{ needs.project.outputs.deployment-ids }}" = "[]" ]; then
-            echo "ERROR: IONOS returned no deployment targets for this branch (deployment-ids empty)."
-            echo "Fix: In IONOS Deploy Now, create/enable a deployment target for this branch (usually 'main')."
-            exit 1
-          fi
-
   deploy:
-    needs: [project, build, validate-deploy-config]
+    needs: [project, build]
     permissions:
       actions: read
     uses: ./.github/workflows/deploy-to-ionos.yaml
