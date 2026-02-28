@@ -45,7 +45,7 @@ const Home = ({}) => {
               to="/menu"
               data-aos="fade-left"
               data-aos-delay="400"
-              className="absolute left-0 hidden px-6 py-3 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-xl top-10 font-din2014 sm:block hover:bg-white/20 transition-colors duration-200 cursor-pointer"
+              className="absolute left-0 hidden px-6 py-3 transition-colors duration-200 border shadow-xl cursor-pointer bg-white/10 backdrop-blur-md border-white/20 rounded-xl top-10 font-din2014 sm:block hover:bg-white/20"
             >
               <span className="font-bold text-white">Order Takeout</span>
             </Link>
@@ -53,7 +53,7 @@ const Home = ({}) => {
               to="/hours-location"
               data-aos="fade-right"
               data-aos-delay="600"
-              className="absolute right-0 hidden px-6 py-3 border shadow-xl bg-white/10 backdrop-blur-md border-white/20 rounded-xl bottom-10 font-din2014 sm:block hover:bg-white/20 transition-colors duration-200 cursor-pointer"
+              className="absolute right-0 hidden px-6 py-3 transition-colors duration-200 border shadow-xl cursor-pointer bg-white/10 backdrop-blur-md border-white/20 rounded-xl bottom-10 font-din2014 sm:block hover:bg-white/20"
             >
               <span className="font-bold text-white">Dine-in Available</span>
             </Link>
