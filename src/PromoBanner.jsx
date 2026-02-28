@@ -9,11 +9,11 @@ const EXPIRATION_DATE = new Date("2026-03-18T00:00:00"); // day after St. Patric
 
 const CloverRow = () => (
   <div
-    className="flex justify-between w-full overflow-hidden text-green-500/50 text-xs leading-none select-none pointer-events-none"
+    className="flex items-center justify-center w-full gap-2 overflow-hidden text-xs leading-none text-green-500/50 select-none pointer-events-none"
     aria-hidden="true"
   >
     {"☘️ "
-      .repeat(40)
+      .repeat(24)
       .trim()
       .split(" ")
       .map((c, i) => (
